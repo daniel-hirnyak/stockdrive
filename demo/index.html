@@ -1303,15 +1303,15 @@ textarea{resize:vertical;min-height:76px;line-height:1.5}
         </div>
         <div class="fgrid-2">
           <div class="fg"><label>Nombre del negocio</label>
-            <input type="text" id="sName" value="" placeholder="${CLIENT_CONFIG.businessName||'Nombre del negocio'}"></div>
+            <input type="text" id="sName" value="" placeholder="Nombre del negocio"></div>
           <div class="fg"><label>Teléfono de contacto</label>
-            <input type="text" id="sPhone" value="" placeholder="${CLIENT_CONFIG.phone||''}"></div>
+            <input type="text" id="sPhone" value="" placeholder="Teléfono de contacto"></div>
         </div>
         <div class="fgrid-2" style="margin-top:12px">
           <div class="fg"><label>WhatsApp de contacto</label>
-            <input type="text" id="sWhatsapp" value="" placeholder="${CLIENT_CONFIG.phone||''}"></div>
+            <input type="text" id="sWhatsapp" value="" placeholder="WhatsApp de contacto"></div>
           <div class="fg"><label>Dirección</label>
-            <input type="text" id="sAddress" value="" placeholder="${CLIENT_CONFIG.address||''}"></div>
+            <input type="text" id="sAddress" value="" placeholder="Dirección del negocio"></div>
         </div>
         <div class="fg" style="margin-top:12px">
           <label>Horario</label>
@@ -1546,7 +1546,7 @@ function openSettingsModal() {
   const saved = (() => { try { return JSON.parse(localStorage.getItem('stockdrive_config')||'{}'); } catch(e) { return {}; } })();
   document.getElementById('sName').value    = saved.businessName    || CLIENT_CONFIG.businessName    || '';
   document.getElementById('sPhone').value   = saved.phone           || CLIENT_CONFIG.phone           || '';
-  document.getElementById('sWhatsapp').value= saved.whatsapp        || CLIENT_CONFIG.phone           || '';
+  document.getElementById('sWhatsapp').value= saved.whatsapp        || CLIENT_CONFIG.whatsapp        || '';
   document.getElementById('sAddress').value = saved.address         || CLIENT_CONFIG.address         || '';
   document.getElementById('sHorario').value = saved.horario         || '';
   // Logo preview
@@ -1605,7 +1605,7 @@ function saveSettingsProfile() {
   const data = {
     businessName: document.getElementById('sName').value.trim()    || CLIENT_CONFIG.businessName,
     phone:        document.getElementById('sPhone').value.trim()   || CLIENT_CONFIG.phone,
-    whatsapp:     document.getElementById('sWhatsapp').value.trim()|| CLIENT_CONFIG.phone,
+    whatsapp:     document.getElementById('sWhatsapp').value.trim()|| CLIENT_CONFIG.whatsapp,
     address:      document.getElementById('sAddress').value.trim() || CLIENT_CONFIG.address,
     horario:      document.getElementById('sHorario').value.trim(),
   };
