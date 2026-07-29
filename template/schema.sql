@@ -70,8 +70,8 @@ CREATE TABLE IF NOT EXISTS historial_estados (
 -- FK ajustada a ON DELETE RESTRICT: el panel bloquea el borrado de un
 -- vehículo con venta asociada, comportamiento incompatible con SET NULL.
 CREATE TABLE IF NOT EXISTS ventas (
-  id                  UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
-  vehiculo_id         UUID        REFERENCES vehiculos(id) ON DELETE RESTRICT,
+  id                  BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  vehiculo_id         UUID REFERENCES vehiculos(id) ON DELETE RESTRICT,
   marca               TEXT,
   modelo              TEXT,
   matricula           TEXT,
@@ -81,12 +81,14 @@ CREATE TABLE IF NOT EXISTS ventas (
   margen              NUMERIC,
   forma_pago          TEXT,
   tipo_iva            TEXT DEFAULT 'rebu',
+  iva_repercutido     NUMERIC DEFAULT 0,
   nombre_comprador    TEXT,
   dni_comprador       TEXT,
   direccion_comprador TEXT,
-  fecha_venta         TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  fecha_venta         DATE,
   numero_contrato     TEXT,
-  dias_en_stock       INTEGER
+  dias_en_stock       INTEGER DEFAULT 0,
+  created_at          TIMESTAMPTZ DEFAULT NOW()
 );
 
 -- ── BUSQUEDAS_CATALOGO ───────────────────────────────────────
