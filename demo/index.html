@@ -3029,7 +3029,7 @@ function renderHomeContent() {
 
   <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:24px">
     <div>
-      <h2 style="font-size:22px;font-weight:700;color:var(--text);margin:0 0 4px">${saludo}, Yuriy</h2>
+      <h2 style="font-size:22px;font-weight:700;color:var(--text);margin:0 0 4px">${saludo}, ${CLIENT_CONFIG.clientName}</h2>
       <p style="font-size:13px;color:var(--text-2);margin:0">Principales métricas y evolución de tu negocio · <span style="color:#15803D;font-weight:600">Actualizado ahora</span></p>
     </div>
     <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;flex-wrap:wrap">
@@ -5046,7 +5046,7 @@ function generateContractPDF(v, buyerName, buyerDni, buyerAddr, price, payMethod
   doc.setFont('helvetica','bold');
   doc.setFontSize(22);
   doc.setTextColor(255,255,255);
-  doc.text('EUROCAR MOTOR',ML,18);
+  doc.text(CLIENT_CONFIG.businessName.toUpperCase(),ML,18);
   doc.setFontSize(11);
   doc.setFont('helvetica','normal');
   doc.setTextColor(180,195,230);
@@ -5094,9 +5094,9 @@ function generateContractPDF(v, buyerName, buyerDni, buyerAddr, price, payMethod
   [
     ['',CLIENT_CONFIG.businessName],
     ['CIF:','_______________'],
-    ['','Carrer les Minetes, 100'],
+    ['',CLIENT_CONFIG.address],
     ['','Polígono Industrial'],
-    ['','08130 Santa Perpètua de Mogoda'],
+    ['',CLIENT_CONFIG.city],
     ['','Barcelona'],
     ['Tel.:','+34 692 92 22 99'],
   ].forEach(([label,val])=>{
@@ -5229,7 +5229,7 @@ function generateContractPDF(v, buyerName, buyerDni, buyerAddr, price, payMethod
 function exportData() {
   const date=new Date().toISOString().split('T')[0];
   const blob=new Blob([JSON.stringify({version:1,exportDate:new Date().toISOString(),vehicles:vehiclesCache},null,2)],{type:'application/json'});
-  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=`eurocar-backup-${date}.json`; a.click(); URL.revokeObjectURL(a.href);
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=`${CLIENT_CONFIG.businessName.toLowerCase().replace(/\s+/g,'-')}-backup-${date}.json`; a.click(); URL.revokeObjectURL(a.href);
   toast('Copia exportada correctamente',3000,'success');
 }
 

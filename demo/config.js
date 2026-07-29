@@ -6,5 +6,6 @@ const CLIENT_CONFIG = {
   phone: '',
   whatsapp: '',
   address: '',
+  city: '',
   schedule: ''
 };
