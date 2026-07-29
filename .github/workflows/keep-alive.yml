@@ -1,0 +1,18 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'  # Cada lunes a las 8:00 UTC
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase Demo
+        run: |
+          curl -s -o /dev/null -w "%{http_code}" \
+            "https://farpikktngdcydpserjl.supabase.co/rest/v1/vehiculos?select=id&limit=1" \
+            -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZhcnBpa2t0bmdkY3lkcHNlcmpsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzMDY2NjUsImV4cCI6MjEwMDg4MjY2NX0.RTFDhdbqDz74GcPlnSE7ZKKKGcQld-u8UOOVcXUii7Y" \
+            -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZhcnBpa2t0bmdkY3lkcHNlcmpsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzMDY2NjUsImV4cCI6MjEwMDg4MjY2NX0.RTFDhdbqDz74GcPlnSE7ZKKKGcQld-u8UOOVcXUii7Y"
+          echo "Ping completado"
