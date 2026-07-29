@@ -9,8 +9,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="StockDrive">
-<link rel="apple-touch-icon" href="/sd-icon-v2.png">
-<link rel="icon" href="/sd-icon-v2.png">
+<link rel="apple-touch-icon" href="../assets/logo.png">
+<link rel="icon" href="../assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -5098,7 +5098,7 @@ function generateContractPDF(v, buyerName, buyerDni, buyerAddr, price, payMethod
     ['','Polígono Industrial'],
     ['',CLIENT_CONFIG.city],
     ['','Barcelona'],
-    ['Tel.:','+34 692 92 22 99'],
+    ['Tel.:', CLIENT_CONFIG.phone || ''],
   ].forEach(([label,val])=>{
     if(label){
       doc.setFont('helvetica','bold');doc.text(label,ML,yL);
