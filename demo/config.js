@@ -7,5 +7,6 @@ const CLIENT_CONFIG = {
   whatsapp: '',
   address: '',
   city: '',
-  schedule: ''
+  schedule: '',
+  bucket: 'vehiculos-fotos'
 };

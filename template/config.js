@@ -17,5 +17,6 @@ const CLIENT_CONFIG = {
   whatsapp: '+34 000 000 000',                // WhatsApp de contacto
   address: 'Calle, número, CP, ciudad',       // Dirección completa (aparece en PDF)
   city: 'Ciudad',                             // Ciudad (aparece en PDF)
-  schedule: 'Lunes a viernes: 9h-18h / Sábados: 9h-14h'  // Horario
+  schedule: 'Lunes a viernes: 9h-18h / Sábados: 9h-14h', // Horario
+  bucket: 'vehiculos-fotos'                   // Bucket de Supabase Storage para fotos
 };

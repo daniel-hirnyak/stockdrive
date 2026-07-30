@@ -5,6 +5,7 @@
 - [ ] Ejecutar SQL de estructura de tablas (ver /template/schema.sql)
 - [ ] Ejecutar SQL de RLS (ver /template/rls.sql)
 - [ ] Crear usuario en Authentication > Users con el email del cliente
+- [ ] Crear bucket de Storage llamado 'vehiculos-fotos' (público)
 - [ ] Copiar Project URL y anon key
 
 ## 2. Panel
