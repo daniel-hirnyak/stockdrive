@@ -4,6 +4,7 @@ const CLIENT_CONFIG = {
   businessName: 'StockDrive Demo',
   clientName: 'Daniel',
   phone: '',
+  phoneDisplay: '',
   whatsapp: '',
   address: '',
   city: '',

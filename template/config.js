@@ -14,6 +14,7 @@ const CLIENT_CONFIG = {
   businessName: 'Nombre del concesionario',  // Aparece en sidebar, PDF y ajustes
   clientName: 'Nombre del responsable',       // Aparece en el saludo del dashboard
   phone: '+34 000 000 000',                   // Teléfono de contacto (aparece en PDF)
+  phoneDisplay: '000 000 000',                // Teléfono sin prefijo, como se muestra en pantalla
   whatsapp: '+34 000 000 000',                // WhatsApp de contacto
   address: 'Calle, número, CP, ciudad',       // Dirección completa (aparece en PDF)
   city: 'Ciudad',                             // Ciudad (aparece en PDF)
