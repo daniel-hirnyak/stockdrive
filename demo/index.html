@@ -2938,7 +2938,7 @@ function renderHomeContent() {
 
   // KPI computations
   const dayOf       = v=>v.entryDate?Math.floor((now-new Date(v.entryDate))/86400000):null;
-  const pvpAnunciado= active.filter(v=>v.publicado&&v.salePrice>0).reduce((s,v)=>s+v.salePrice,0);
+  const pvpAnunciado= active.filter(v=>v.salePrice>0).reduce((s,v)=>s+v.salePrice,0);
   const margenPotencial = pvpAnunciado - sm.invested;
   const daysArr     = active.filter(v=>v.entryDate).map(dayOf);
   const avgPerm     = daysArr.length?daysArr.reduce((a,b)=>a+b,0)/daysArr.length:null;
