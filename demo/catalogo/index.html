@@ -1568,6 +1568,8 @@ async function loadVehicles() {
       precio_mas_iva: !!row.precio_mas_iva,
     }));
 
+    trackEvento('visita_catalogo', null);
+
     const _hc = document.getElementById('heroVehicleCount');
     if (_hc) _hc.textContent = allVehicles.length;
 

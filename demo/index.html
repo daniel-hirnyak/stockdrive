@@ -3797,7 +3797,7 @@ function applyWebPeriod(p) {
 
   // KPIs período actual
   const pEv      = events.filter(inCur);
-  const visitas  = pEv.filter(e=>e.tipo==='vista').length;
+  const visitas  = pEv.filter(e=>e.tipo==='visita_catalogo').length;
   const fichas   = pEv.filter(e=>e.tipo==='vista'&&e.vehiculo_id).length;
   const calls    = pEv.filter(e=>e.tipo==='clic_llamar').length;
   const wa       = pEv.filter(e=>e.tipo==='clic_whatsapp').length;
@@ -3806,7 +3806,7 @@ function applyWebPeriod(p) {
 
   // KPIs período anterior
   const pvEv       = events.filter(inPrev);
-  const pvVisitas  = pvEv.filter(e=>e.tipo==='vista').length;
+  const pvVisitas  = pvEv.filter(e=>e.tipo==='visita_catalogo').length;
   const pvFichas   = pvEv.filter(e=>e.tipo==='vista'&&e.vehiculo_id).length;
   const pvCalls    = pvEv.filter(e=>e.tipo==='clic_llamar').length;
   const pvWa       = pvEv.filter(e=>e.tipo==='clic_whatsapp').length;
@@ -3929,9 +3929,9 @@ function applyWebPeriod(p) {
       const ds=new Date(mon.getTime()+i*86400000), de=new Date(ds.getTime()+86400000);
       const inD=e=>{const d=new Date(e.timestamp);return d>=ds&&d<de;};
       chartLabels.push(lbl);
-      chartV.push(events.filter(e=>e.tipo==='vista'&&inD(e)).length);
+      chartV.push(events.filter(e=>e.tipo==='visita_catalogo'&&inD(e)).length);
       chartC.push(events.filter(e=>(e.tipo==='clic_llamar'||e.tipo==='clic_whatsapp')&&inD(e)).length);
-      chartF.push(new Set(events.filter(e=>e.tipo==='vista'&&e.vehiculo_id&&inD(e)).map(e=>e.vehiculo_id)).size);
+      chartF.push(events.filter(e=>e.tipo==='vista'&&e.vehiculo_id&&inD(e)).length);
     });
   } else if (p==='mes'||p==='3m') {
     const nW=p==='mes'?4:12, curMon=getMonday(now);
@@ -3939,18 +3939,18 @@ function applyWebPeriod(p) {
       const ws=new Date(curMon.getTime()-i*7*86400000), we=new Date(ws.getTime()+7*86400000);
       const inW=e=>{const d=new Date(e.timestamp);return d>=ws&&d<we;};
       chartLabels.push(`${ws.getDate()} ${ws.toLocaleString('es-ES',{month:'short'})}`);
-      chartV.push(events.filter(e=>e.tipo==='vista'&&inW(e)).length);
+      chartV.push(events.filter(e=>e.tipo==='visita_catalogo'&&inW(e)).length);
       chartC.push(events.filter(e=>(e.tipo==='clic_llamar'||e.tipo==='clic_whatsapp')&&inW(e)).length);
-      chartF.push(new Set(events.filter(e=>e.tipo==='vista'&&e.vehiculo_id&&inW(e)).map(e=>e.vehiculo_id)).size);
+      chartF.push(events.filter(e=>e.tipo==='vista'&&e.vehiculo_id&&inW(e)).length);
     }
   } else { // 12m → puntos mensuales
     for (let i=11;i>=0;i--){
       const ms=new Date(now.getFullYear(),now.getMonth()-i,1), me=new Date(now.getFullYear(),now.getMonth()-i+1,1);
       const inM=e=>{const d=new Date(e.timestamp);return d>=ms&&d<me;};
       chartLabels.push(ms.toLocaleString('es-ES',{month:'short',year:'2-digit'}));
-      chartV.push(events.filter(e=>e.tipo==='vista'&&inM(e)).length);
+      chartV.push(events.filter(e=>e.tipo==='visita_catalogo'&&inM(e)).length);
       chartC.push(events.filter(e=>(e.tipo==='clic_llamar'||e.tipo==='clic_whatsapp')&&inM(e)).length);
-      chartF.push(new Set(events.filter(e=>e.tipo==='vista'&&e.vehiculo_id&&inM(e)).map(e=>e.vehiculo_id)).size);
+      chartF.push(events.filter(e=>e.tipo==='vista'&&e.vehiculo_id&&inM(e)).length);
     }
   }
   const chartT = chartV.map((v,i)=>v>0?Math.round(chartC[i]/v*100):0);
