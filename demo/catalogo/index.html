@@ -1279,7 +1279,7 @@ img { display: block; max-width: 100%; }
     </div>
 
     <div class="map-wrap">
-      <iframe
+      <iframe id="catMapIframe"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11972!2d2.1734!3d41.3851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDIzJzA2LjQiTiAywrAxMCcyNC4yIkU!5e0!3m2!1ses!2ses!4v1234567890"
         width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
         referrerpolicy="strict-origin-when-cross-origin" title="Localización"></iframe>
@@ -1470,10 +1470,16 @@ img { display: block; max-width: 100%; }
 const _phoneClean = CLIENT_CONFIG.phone.replace(/\+|\s/g, '');
 const _waBase = `https://wa.me/${_phoneClean}`;
 
+// Color corporativo del catálogo (personalizable por cliente)
+document.documentElement.style.setProperty('--red', CLIENT_CONFIG.catalogColor || '#16255C');
+document.documentElement.style.setProperty('--black', CLIENT_CONFIG.catalogColor || '#16255C');
+
 // Textos
 const _fill = (id, text) => { const el=document.getElementById(id); if(el) el.textContent=text; };
 const _html  = (id, html) => { const el=document.getElementById(id); if(el) el.innerHTML=html; };
 const _attr  = (id, attr, val) => { const el=document.getElementById(id); if(el) el.setAttribute(attr,val); };
+
+if (CLIENT_CONFIG.catalogMapUrl) _attr('catMapIframe', 'src', CLIENT_CONFIG.catalogMapUrl);
 
 _fill('catHeaderName',  CLIENT_CONFIG.businessName);
 _fill('catFooterName',  CLIENT_CONFIG.businessName);

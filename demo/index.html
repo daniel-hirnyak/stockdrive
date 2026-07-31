@@ -1138,7 +1138,7 @@ textarea{resize:vertical;min-height:76px;line-height:1.5}
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
         <span>Rendimiento web</span>
       </button>
-      <button class="sidebar-nav-item" onclick="window.open(location.origin+'/catalogo/','_blank')">
+      <button class="sidebar-nav-item" onclick="window.open(CLIENT_CONFIG.catalogUrl,'_blank')">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         <span>Catálogo online</span>
       </button>
@@ -1237,7 +1237,7 @@ textarea{resize:vertical;min-height:76px;line-height:1.5}
   <div id="mobileActionsMenu">
     <button class="maction-item" onclick="showAddForm();closeMobileActionsMenu()">Añadir vehículo</button>
     <button class="maction-item" onclick="openSoldModal(null);closeMobileActionsMenu()">Registrar venta</button>
-    <button class="maction-item" style="justify-content:space-between" onclick="window.open(location.origin+'/catalogo/','_blank');closeMobileActionsMenu()">
+    <button class="maction-item" style="justify-content:space-between" onclick="window.open(CLIENT_CONFIG.catalogUrl,'_blank');closeMobileActionsMenu()">
       Ver catálogo
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
     </button>
@@ -4311,7 +4311,7 @@ function openWebVehMenu(e, id) {
   document.removeEventListener('click', _closeWebVehMenu);
   const btn = e.currentTarget;
   const rect = btn.getBoundingClientRect();
-  const catUrl = location.origin + '/catalogo/?vehiculo=' + encodeURIComponent(id);
+  const catUrl = CLIENT_CONFIG.catalogUrl + '?vehiculo=' + encodeURIComponent(id);
   const menu = document.createElement('div');
   menu.className = 'web-veh-menu';
   menu.style.cssText = 'position:fixed;top:' + (rect.bottom + 4) + 'px;right:' + (window.innerWidth - rect.right) + 'px;background:var(--white);border:1px solid var(--border);border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.12);z-index:9999;min-width:180px;overflow:hidden';
