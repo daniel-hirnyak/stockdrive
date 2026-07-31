@@ -6,18 +6,18 @@
 <title>Catálogo de vehículos</title>
 <meta name="description" content="Vehículos de ocasión seleccionados en Santa Perpètua de Mogoda, Barcelona. Llámanos al +34 692 92 22 99.">
 <link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#0D0D0D">
+<meta name="theme-color" content="#16255C">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="StockDrive">
-<link rel="apple-touch-icon" href="/eurocar-favicon.png">
-<link rel="icon" href="/eurocar-favicon.png">
+<link rel="apple-touch-icon" href="../assets/logo.png">
+<link rel="icon" href="../assets/logo.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Eurocar-Motor">
 <meta property="og:title" content="Eurocar-Motor · Vehículos de ocasión">
 <meta property="og:description" content="Furgonetas y vehículos de ocasión seleccionados en Santa Perpètua de Mogoda. Más de 10 años de experiencia.">
-<meta property="og:url" content="https://eurocarmotor.com/catalogo/">
-<meta property="og:image" content="https://eurocarmotor.com/catalogo/media/flota-exterior-og.jpg">
+<meta property="og:url" content="https://stockdrive.es/demo/catalogo/">
+<meta property="og:image" content="https://stockdrive.es/assets/logo.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -43,9 +43,9 @@ img { display: block; max-width: 100%; }
 
 /* ── VARIABLES ───────────────────────────────────────────── */
 :root {
-  --red:    #E30613;
-  --red-d:  #B8050F;
-  --black:  #0D0D0D;
+  --red:    #16255C;
+  --red-d:  #162248;
+  --black:  #16255C;
   --white:  #FFFFFF;
   --gray:   #F4F4F4;
   --gray-2: #E8E8E8;
@@ -63,7 +63,7 @@ img { display: block; max-width: 100%; }
   position: sticky;
   top: 0;
   z-index: 100;
-  background: #141414;
+  background: #16255C;
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
   height: 62px;
@@ -76,7 +76,7 @@ img { display: block; max-width: 100%; }
   transition: background .25s, box-shadow .25s;
 }
 .header--scrolled {
-  background: rgba(20,20,20,.72);
+  background: rgba(22,37,92,.72);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   box-shadow: 0 2px 16px rgba(0,0,0,.35);
@@ -164,7 +164,7 @@ img { display: block; max-width: 100%; }
 .hero-search-wrap{position:relative;margin-bottom:12px}
 .hero-search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--gray-3);pointer-events:none}
 .hero-search-inp{width:100%;padding:14px 14px 14px 44px;border:1.5px solid var(--gray-2);border-radius:10px;font-size:15px;color:var(--text);background:#fff;outline:none;font-family:inherit;transition:border-color .2s,box-shadow .2s;box-shadow:0 1px 3px rgba(0,0,0,.05)}
-.hero-search-inp:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(227,6,19,.1)}
+.hero-search-inp:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(22,37,92,.1)}
 .hero-search-btn{width:100%;padding:14px;background:var(--red);color:var(--white);border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:background .25s}
 .hero-search-btn:hover{background:var(--red-d)}
 .hero-count{margin-top:18px;padding-top:16px;border-top:1px solid var(--gray-2);text-align:center}
@@ -487,7 +487,7 @@ img { display: block; max-width: 100%; }
   white-space: nowrap;
   border: none;
 }
-.btn-detail:hover { background: #333; }
+.btn-detail:hover { background: #162248; }
 
 /* ── LOADING SKELETON ────────────────────────────────────── */
 .skeleton-card {
@@ -594,7 +594,7 @@ img { display: block; max-width: 100%; }
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #1a1a1a;
+  background: #16255C;
 }
 .gallery-nav {
   position: absolute;
@@ -713,7 +713,7 @@ img { display: block; max-width: 100%; }
   background: var(--black);
   color: var(--white);
 }
-.modal-cta-call:hover { background: #333; }
+.modal-cta-call:hover { background: #162248; }
 .modal-cta-wa {
   background: #25D366;
   color: var(--white);
@@ -739,15 +739,15 @@ img { display: block; max-width: 100%; }
 .why-photo{width:100%;height:100%;min-height:300px;object-fit:cover;display:block}
 .why-list{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .why-item{display:flex;flex-direction:column;gap:12px;background:var(--white);border:0.5px solid var(--gray-2);border-radius:12px;padding:20px;transition:transform .2s,box-shadow .2s,border-color .2s}
-.why-item:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.10);border-color:rgba(227,6,19,.35)}
-.why-icon{flex-shrink:0;width:44px;height:44px;background:rgba(227,6,19,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--red)}
+.why-item:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.10);border-color:rgba(22,37,92,.35)}
+.why-icon{flex-shrink:0;width:44px;height:44px;background:rgba(22,37,92,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--red)}
 .why-item-title{font-size:15px;font-weight:500;margin-bottom:4px;line-height:1.3;color:var(--text)}
 .why-item-desc{font-size:13px;color:var(--text-2);line-height:1.6}
 @media(max-width:900px){.why-split{grid-template-columns:1fr;gap:36px}.why-photo{height:280px}}
 @media(max-width:640px){.why-list{grid-template-columns:1fr}}
 
 /* ── ABOUT ───────────────────────────────────────────────── */
-.about-section{padding:56px 24px;background:#141414;color:var(--white);text-align:center}
+.about-section{padding:56px 24px;background:#16255C;color:var(--white);text-align:center}
 .about-inner{max-width:660px;margin:0 auto}
 .about-eyebrow{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--red);margin-bottom:12px}
 .about-title{font-size:clamp(22px,4vw,32px);font-weight:500;margin-bottom:20px;letter-spacing:-.3px}
@@ -760,13 +760,13 @@ img { display: block; max-width: 100%; }
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
 .contact-col-label{font-size:12px;font-weight:700;color:var(--text-2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:22px}
 .c-row{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px}
-.c-icon{flex-shrink:0;width:38px;height:38px;background:rgba(227,6,19,.1);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--red)}
+.c-icon{flex-shrink:0;width:38px;height:38px;background:rgba(22,37,92,.1);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--red)}
 .c-label{font-size:11px;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
 .c-val{font-size:14px;line-height:1.55;color:var(--text)}
 .cta-btns{display:flex;flex-direction:column;gap:14px}
 .btn-cta-lg{display:flex;align-items:center;justify-content:center;gap:10px;padding:18px 24px;border-radius:12px;font-size:16px;font-weight:700;text-decoration:none;transition:all .25s;border:none;cursor:pointer;font-family:inherit}
 .btn-cta-navy{background:var(--black);color:var(--white)}
-.btn-cta-navy:hover{background:#1A1A1A}
+.btn-cta-navy:hover{background:#162248}
 .btn-cta-green{background:#25D366;color:var(--white)}
 .btn-cta-green:hover{background:#20bb59}
 @media(max-width:768px){.contact-grid{grid-template-columns:1fr;gap:32px}}
@@ -780,7 +780,7 @@ img { display: block; max-width: 100%; }
 .map-wrap iframe{width:100%;height:400px;display:block;border:0}
 .map-directions-wrap{margin-top:16px;text-align:center}
 .map-directions-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:var(--black);color:var(--white);border-radius:9px;font-size:14px;font-weight:600;text-decoration:none;transition:background .15s}
-.map-directions-btn:hover{background:#2a2a2a}
+.map-directions-btn:hover{background:#162248}
 @media(max-width:768px){.map-wrap iframe{height:300px}}
 
 /* ── STOCK VIEW ──────────────────────────────────────────── */
@@ -798,7 +798,7 @@ img { display: block; max-width: 100%; }
 .sf-sel{-webkit-appearance:none;appearance:none;background-color:var(--gray);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;background-size:10px;padding-right:26px;cursor:pointer}
 .sf-sel:focus,.sf-inp:focus{border-color:var(--red);background-color:var(--white)}
 .sf-inp{width:106px}.sf-clear-btn{padding:9px 14px;border:1.5px solid var(--gray-2);border-radius:8px;font-size:12px;font-weight:600;color:var(--text-2);background:var(--white);cursor:pointer;font-family:inherit;transition:all .15s;white-space:nowrap;align-self:flex-end}
-.sf-clear-btn:hover{border-color:var(--red);color:var(--red);background:rgba(227,6,19,.04)}
+.sf-clear-btn:hover{border-color:var(--red);color:var(--red);background:rgba(22,37,92,.04)}
 .stock-results-bar{background:var(--white);border-bottom:1px solid var(--gray-2);padding:11px 0}
 .stock-results-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:14px}
 .stock-kw-wrap{position:relative;flex:1;max-width:340px}
@@ -808,7 +808,7 @@ img { display: block; max-width: 100%; }
 .stock-count{font-size:13px;font-weight:600;color:var(--text-2);margin-left:auto;white-space:nowrap}
 .stock-mob-bar{display:none;background:var(--white);border-bottom:1px solid var(--gray-2);padding:12px 16px;gap:10px;align-items:center;position:sticky;top:62px;z-index:90}
 .sm-filter-btn{display:flex;align-items:center;gap:6px;padding:9px 14px;border:1.5px solid var(--gray-2);border-radius:8px;font-size:13px;font-weight:600;color:var(--text);background:var(--gray);cursor:pointer;font-family:inherit;white-space:nowrap;transition:all .15s;flex-shrink:0}
-.sm-filter-btn--active{border-color:var(--red);color:var(--red);background:rgba(227,6,19,.07)}
+.sm-filter-btn--active{border-color:var(--red);color:var(--red);background:rgba(22,37,92,.07)}
 .sm-kw-wrap{position:relative;flex:1}
 .sm-kw-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--gray-3);pointer-events:none}
 .sm-kw-inp{width:100%;padding:9px 10px 9px 34px;border:1.5px solid var(--gray-2);border-radius:8px;font-size:13px;color:var(--text);background:var(--gray);outline:none;font-family:inherit}
@@ -845,12 +845,12 @@ img { display: block; max-width: 100%; }
 .sl-card-name{font-size:19px;font-weight:800;color:var(--text);margin-bottom:10px;letter-spacing:-.2px;line-height:1.2}
 .sl-card-specs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
 .sl-spec{display:flex;align-items:center;gap:5px;font-size:13px;color:var(--text-2);background:var(--gray);border-radius:6px;padding:4px 10px;white-space:nowrap}
-.sl-badge-dest{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:var(--red);background:rgba(227,6,19,.08);border:1px solid rgba(227,6,19,.2);border-radius:6px;padding:3px 8px;width:fit-content}
+.sl-badge-dest{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:var(--red);background:rgba(22,37,92,.08);border:1px solid rgba(22,37,92,.2);border-radius:6px;padding:3px 8px;width:fit-content}
 .sl-card-price-col{padding:18px 20px;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:10px;flex-shrink:0;border-left:1px solid var(--gray-2)}
 .sl-price-label{font-size:11px;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.06em}
 .sl-price{font-size:26px;font-weight:900;color:var(--red);letter-spacing:-.5px;white-space:nowrap;line-height:1}
 .sl-detail-btn{padding:10px 18px;background:var(--black);color:var(--white);border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap;transition:background .15s}
-.sl-detail-btn:hover{background:#333}
+.sl-detail-btn:hover{background:#162248}
 .stock-empty{text-align:center;padding:72px 20px}
 .stock-empty svg{margin:0 auto 20px}
 .stock-empty-title{font-size:20px;font-weight:700;margin-bottom:10px}
@@ -908,7 +908,7 @@ img { display: block; max-width: 100%; }
 .iva-tag{font-size:10px;font-weight:600;color:var(--text-2);letter-spacing:.04em;margin-top:2px}
 .ficha-cta-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .ficha-cta-call,.ficha-cta-wa{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px 10px;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;text-decoration:none;transition:background .15s;font-family:inherit;white-space:nowrap}
-.ficha-cta-call{background:var(--black);color:var(--white)}.ficha-cta-call:hover{background:#222}
+.ficha-cta-call{background:var(--black);color:var(--white)}.ficha-cta-call:hover{background:#162248}
 .ficha-cta-wa{background:#25D366;color:var(--white)}.ficha-cta-wa:hover{background:#20bb59}
 /* Ficha técnica */
 .ficha-specs-box{background:var(--white);border:1px solid var(--gray-2);border-radius:12px;overflow:hidden}
@@ -960,7 +960,7 @@ img { display: block; max-width: 100%; }
 <header class="header">
   <div class="header-brand">
     <div class="header-logo">
-      <img src="media/nofondologo.png" alt="" id="catHeaderLogoImg">
+      <img src="../assets/logo.png" alt="" id="catHeaderLogoImg">
     </div>
     <div>
       <div class="header-name" id="catHeaderName"></div>
@@ -1074,76 +1074,36 @@ img { display: block; max-width: 100%; }
 
       <!-- Set 1 -->
       <div class="review-card">
-        <p class="review-name">Francisco Liébana Begara</p>
+        <p class="review-name">Carlos M., Barcelona</p>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">"He comprado una Mercedes Sprinter KSH de matrícula, todo muy transparente. La probé dos veces y al final la compré. Muy contento, da gusto encontrar aún vendedores profesionales, con la atención y la paciencia que tuvieron."</p>
+        <p class="review-text">"Compré una furgoneta para mi empresa y el proceso fue muy fácil. El catálogo online me ayudó a elegir antes de ir al concesionario."</p>
       </div>
       <div class="review-card">
-        <p class="review-name">Adrián Dima</p>
+        <p class="review-name">Ana R., Madrid</p>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">"He comprado varias furgonetas aquí y todo ha ido muy bien. Buenos servicios y un trato excelente por parte de Yuri. Mucha profesionalidad y rapidez en los procedimientos. ¡Recomiendo el sitio!"</p>
+        <p class="review-text">"Muy buena atención y vehículos en perfecto estado. Totalmente recomendable."</p>
       </div>
       <div class="review-card">
-        <p class="review-name">Javier Morales</p>
+        <p class="review-name">José L., Valencia</p>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Un conocido compró una Sprinter larga hace 3 años y hasta el día de hoy (800.000 km) ningún problema. Un buen amigo también compró otra más pequeña y sigue sin problemas. Tienen buenos vehículos."</p>
-      </div>
-      <div class="review-card">
-        <p class="review-name">Cristian Del Amo Cosme</p>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Personas muy correctas y amables, un trato estupendo y total transparencia con los desperfectos que pueda tener el vehículo. Me fueron a recoger a la estación, ya que fui en avión hasta allí. Muy agradecido, la documentación súper rápida. Volvería a repetir cada vez que tenga que comprar un vehículo."</p>
-      </div>
-      <div class="review-card">
-        <p class="review-name">IRONCOL</p>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Compré allí una furgoneta, una Mercedes Sprinter, y salió buenísima. El vendedor es excelente, servicial, serio y muy responsable con las garantías. Atendió siempre mis dudas sobre cualquier detalle a revisar. Recomendado al 100%."</p>
-      </div>
-      <div class="review-card">
-        <p class="review-name">Jefferson Cachiguango</p>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Excelente reseña y recomendación para este negocio de venta de furgonetas. Se han portado genial desde el inicio hasta la compra, la entrega de la documentación y el cambio de nombre. Personas muy serias y de buen trato. Al comprar un coche sentimos un poco de miedo, pero esta empresa es muy seria y comprometida. ¡Recomendados!"</p>
-      </div>
-      <div class="review-card">
-        <p class="review-name">Juan Antonio Esteve Jiménez</p>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Compré hace 5 años una furgoneta y estoy súper contento con ella y por el trato recibido. Si tuviese que volver a comprar otra, volvería a comprársela a él."</p>
+        <p class="review-text">"Rápidos, transparentes y con buenos precios. Repetiremos sin duda."</p>
       </div>
 
       <!-- Set 2: clone para loop infinito -->
       <div class="review-card" aria-hidden="true">
-        <p class="review-name">Francisco Liébana Begara</p>
+        <p class="review-name">Carlos M., Barcelona</p>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">"He comprado una Mercedes Sprinter KSH de matrícula, todo muy transparente. La probé dos veces y al final la compré. Muy contento, da gusto encontrar aún vendedores profesionales, con la atención y la paciencia que tuvieron."</p>
+        <p class="review-text">"Compré una furgoneta para mi empresa y el proceso fue muy fácil. El catálogo online me ayudó a elegir antes de ir al concesionario."</p>
       </div>
       <div class="review-card" aria-hidden="true">
-        <p class="review-name">Adrián Dima</p>
+        <p class="review-name">Ana R., Madrid</p>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">"He comprado varias furgonetas aquí y todo ha ido muy bien. Buenos servicios y un trato excelente por parte de Yuri. Mucha profesionalidad y rapidez en los procedimientos. ¡Recomiendo el sitio!"</p>
+        <p class="review-text">"Muy buena atención y vehículos en perfecto estado. Totalmente recomendable."</p>
       </div>
       <div class="review-card" aria-hidden="true">
-        <p class="review-name">Javier Morales</p>
+        <p class="review-name">José L., Valencia</p>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Un conocido compró una Sprinter larga hace 3 años y hasta el día de hoy (800.000 km) ningún problema. Un buen amigo también compró otra más pequeña y sigue sin problemas. Tienen buenos vehículos."</p>
-      </div>
-      <div class="review-card" aria-hidden="true">
-        <p class="review-name">Cristian Del Amo Cosme</p>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Personas muy correctas y amables, un trato estupendo y total transparencia con los desperfectos que pueda tener el vehículo. Me fueron a recoger a la estación, ya que fui en avión hasta allí. Muy agradecido, la documentación súper rápida. Volvería a repetir cada vez que tenga que comprar un vehículo."</p>
-      </div>
-      <div class="review-card" aria-hidden="true">
-        <p class="review-name">IRONCOL</p>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Compré allí una furgoneta, una Mercedes Sprinter, y salió buenísima. El vendedor es excelente, servicial, serio y muy responsable con las garantías. Atendió siempre mis dudas sobre cualquier detalle a revisar. Recomendado al 100%."</p>
-      </div>
-      <div class="review-card" aria-hidden="true">
-        <p class="review-name">Jefferson Cachiguango</p>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Excelente reseña y recomendación para este negocio de venta de furgonetas. Se han portado genial desde el inicio hasta la compra, la entrega de la documentación y el cambio de nombre. Personas muy serias y de buen trato. Al comprar un coche sentimos un poco de miedo, pero esta empresa es muy seria y comprometida. ¡Recomendados!"</p>
-      </div>
-      <div class="review-card" aria-hidden="true">
-        <p class="review-name">Juan Antonio Esteve Jiménez</p>
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Compré hace 5 años una furgoneta y estoy súper contento con ella y por el trato recibido. Si tuviese que volver a comprar otra, volvería a comprársela a él."</p>
+        <p class="review-text">"Rápidos, transparentes y con buenos precios. Repetiremos sin duda."</p>
       </div>
 
     </div>
@@ -1211,8 +1171,8 @@ img { display: block; max-width: 100%; }
 <section class="about-section">
   <div class="about-inner">
     <p class="about-eyebrow">Sobre nosotros</p>
-    <h2 class="about-title">Una compraventa familiar, sin intermediarios</h2>
-    <p class="about-text">Somos <span id="catAboutName"></span>, una compraventa familiar con más de 10 años de experiencia en <span id="catAboutCity"></span>. Especializados en furgonetas comerciales y vehículos de ocasión seleccionados, trabajamos con atención directa y sin intermediarios. Si buscas una furgoneta de trabajo o un turismo de confianza, aquí encontrarás lo que necesitas, al precio justo.</p>
+    <h2 class="about-title">Tu concesionario de confianza</h2>
+    <p class="about-text">Especialistas en vehículos de ocasión seleccionados con los más altos estándares de calidad. Cada vehículo pasa por una revisión exhaustiva antes de ponerse a la venta.</p>
     <div class="about-divider"></div>
     <p class="about-sig">— <span id="catAboutSig"></span></p>
   </div>
@@ -1271,12 +1231,12 @@ img { display: block; max-width: 100%; }
 
     <div class="map-wrap">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2986.5407869481!2d2.1839993761835936!3d41.53588678677076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4befec39d12cd%3A0x182a939d99eaa6f1!2sEurocar-motor%20s.l!5e0!3m2!1ses!2ses!4v1783773471864!5m2!1ses!2ses"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11972!2d2.1734!3d41.3851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDIzJzA2LjQiTiAywrAxMCcyNC4yIkU!5e0!3m2!1ses!2ses!4v1234567890"
         width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="strict-origin-when-cross-origin" title="Localización Eurocar-Motor"></iframe>
+        referrerpolicy="strict-origin-when-cross-origin" title="Localización"></iframe>
     </div>
     <div class="map-directions-wrap">
-      <a href="https://www.google.com/maps/search/?api=1&query=Eurocar-motor+s.l" target="_blank" rel="noopener" class="map-directions-btn">
+      <a href="https://www.google.com/maps/search/?api=1&query=41.3851,2.1734" target="_blank" rel="noopener" class="map-directions-btn">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         Cómo llegar en Google Maps
       </a>
@@ -1467,12 +1427,10 @@ const _html  = (id, html) => { const el=document.getElementById(id); if(el) el.i
 const _attr  = (id, attr, val) => { const el=document.getElementById(id); if(el) el.setAttribute(attr,val); };
 
 _fill('catHeaderName',  CLIENT_CONFIG.businessName);
-_fill('catAboutName',   CLIENT_CONFIG.businessName);
 _fill('catFooterName',  CLIENT_CONFIG.businessName);
 _fill('catTagline',     'Vehículos de ocasión');
 _fill('catHeroSub',     'Vehículos de ocasión seleccionados');
 _fill('catWhySub',      'Más de 10 años ayudando a clientes a encontrar su vehículo ideal.');
-_fill('catAboutCity',   CLIENT_CONFIG.city);
 _fill('catFooterCity',  CLIENT_CONFIG.city);
 _fill('catEyebrowBrand', CLIENT_CONFIG.businessName);
 _fill('catEyebrowCity',  CLIENT_CONFIG.city);
@@ -1717,7 +1675,7 @@ const specIcons = {
 
 const galleryPlaceholderHtml = `
   <div class="gallery" id="mGallery">
-    <div class="gallery-placeholder" id="mGalleryPlaceholder" style="background:linear-gradient(90deg,#1a1a1a 25%,#2a2a2a 50%,#1a1a1a 75%);background-size:200% 100%;animation:shimmer 1.5s infinite">
+    <div class="gallery-placeholder" id="mGalleryPlaceholder" style="background:linear-gradient(90deg,#16255C 25%,#223270 50%,#16255C 75%);background-size:200% 100%;animation:shimmer 1.5s infinite">
     </div>
   </div>`;
 
