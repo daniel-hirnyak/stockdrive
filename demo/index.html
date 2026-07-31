@@ -3743,6 +3743,7 @@ async function loadWebAnalytics() {
     const { data: ev, error: ee } = await sb.from('eventos_catalogo').select('tipo,vehiculo_id,timestamp');
     if (ee) throw ee;
     _webEvCache = ev || [];
+    console.log('Eventos cargados:', _webEvCache.length, _webEvCache.slice(0,3));
     applyWebPeriod('week');
   } catch(err) {
     console.error('Web analytics:', err);
@@ -3790,12 +3791,14 @@ function applyWebPeriod(p) {
   }
 
   const inCur  = e => { const d=new Date(e.timestamp); return d>=start&&d<=now; };
+  const eventosEnPeriodo = _webEvCache.filter(inCur);
+  console.log('Período actual:', p, 'Start:', start, 'Now:', now, 'Eventos en período:', eventosEnPeriodo.length);
   const inPrev = e => { const d=new Date(e.timestamp); return d>=prevStart&&d<=prevEnd; };
 
   // KPIs período actual
   const pEv      = events.filter(inCur);
   const visitas  = pEv.filter(e=>e.tipo==='vista').length;
-  const fichas   = new Set(pEv.filter(e=>e.tipo==='vista'&&e.vehiculo_id).map(e=>e.vehiculo_id)).size;
+  const fichas   = pEv.filter(e=>e.tipo==='vista'&&e.vehiculo_id).length;
   const calls    = pEv.filter(e=>e.tipo==='clic_llamar').length;
   const wa       = pEv.filter(e=>e.tipo==='clic_whatsapp').length;
   const contactos = calls+wa;
@@ -3804,7 +3807,7 @@ function applyWebPeriod(p) {
   // KPIs período anterior
   const pvEv       = events.filter(inPrev);
   const pvVisitas  = pvEv.filter(e=>e.tipo==='vista').length;
-  const pvFichas   = new Set(pvEv.filter(e=>e.tipo==='vista'&&e.vehiculo_id).map(e=>e.vehiculo_id)).size;
+  const pvFichas   = pvEv.filter(e=>e.tipo==='vista'&&e.vehiculo_id).length;
   const pvCalls    = pvEv.filter(e=>e.tipo==='clic_llamar').length;
   const pvWa       = pvEv.filter(e=>e.tipo==='clic_whatsapp').length;
   const pvContactos = pvCalls+pvWa;
