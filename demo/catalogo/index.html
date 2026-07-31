@@ -1866,6 +1866,7 @@ document.addEventListener('keydown', e => {
 // ALTER TABLE eventos_catalogo ENABLE ROW LEVEL SECURITY;
 // CREATE POLICY "insert_anon" ON eventos_catalogo FOR INSERT WITH CHECK (true);
 async function trackEvento(tipo, vehiculoId) {
+  console.log('trackEvento llamado:', tipo, vehiculoId, 'URL:', CLIENT_CONFIG.supabaseUrl);
   try {
     await sb.from('eventos_catalogo').insert({
       tipo,
