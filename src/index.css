@@ -6,12 +6,6 @@
   --brand-light: #1e3a8a;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 html {
   font-family: 'Manrope', sans-serif;
   -webkit-font-smoothing: antialiased;
