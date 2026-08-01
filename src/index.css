@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
 
-*, *::before, *::after {
+:root {
+  --brand: #16255C;
+  --brand-light: #1e3a8a;
+}
+
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
