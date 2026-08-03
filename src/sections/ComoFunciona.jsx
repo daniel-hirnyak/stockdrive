@@ -1,5 +1,9 @@
 import { useRef, useState, useLayoutEffect } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion'
+import { AnimAddVehicle } from '../components/ui/AnimAddVehicle'
+import { AnimPublishVehicle } from '../components/ui/AnimPublishVehicle'
+import { AnimMargin } from '../components/ui/AnimMargin'
+import { AnimSellVehicle } from '../components/ui/AnimSellVehicle'
 
 const steps = [
   {
@@ -41,7 +45,7 @@ function useStepMotion(scrollYProgress, threshold) {
   return { opacity, y, circleColor }
 }
 
-function StepContent({ step, opacity, y }) {
+function StepText({ step, opacity, y }) {
   return (
     <motion.div style={{ opacity, y }}>
       <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-[#16255C]">
@@ -49,10 +53,17 @@ function StepContent({ step, opacity, y }) {
       </div>
       <h3 className="mb-3 text-2xl font-bold text-[#0F172A]">{step.title}</h3>
       <p className="text-base text-[#64748B]">{step.description}</p>
+    </motion.div>
+  )
+}
 
-      <div className="mt-6 flex aspect-video items-center justify-center rounded-xl border border-slate-200 bg-slate-50">
-        <span className="text-sm text-slate-400">Animación: {step.title}</span>
-      </div>
+function StepPlaceholder({ step, opacity, y, children }) {
+  return (
+    <motion.div
+      style={{ opacity, y }}
+      className="flex aspect-video items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-slate-50"
+    >
+      {children ?? <span className="text-sm text-slate-400">Animación: {step.title}</span>}
     </motion.div>
   )
 }
@@ -99,6 +110,24 @@ export default function ComoFunciona() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  // Paso "activo" discreto (el más cercano al scroll actual), derivado del
+  // mismo scrollYProgress continuo que ya anima color/opacidad — se usa para
+  // pausar/reanudar animaciones internas costosas de pasos fuera de vista.
+  const [activeStep, setActiveStep] = useState(0)
+
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+    let closest = 0
+    let minDist = Infinity
+    fractions.forEach((fraction, idx) => {
+      const dist = Math.abs(latest - fraction)
+      if (dist < minDist) {
+        minDist = dist
+        closest = idx
+      }
+    })
+    setActiveStep(closest)
+  })
+
   const lineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
 
   const step0 = useStepMotion(scrollYProgress, fractions[0])
@@ -130,7 +159,9 @@ export default function ComoFunciona() {
 
           {steps.map((step, i) => {
             const stepNumber = i + 1
-            const isLeft = stepNumber % 2 === 0
+            // Impares: texto a la derecha, placeholder a la izquierda.
+            // Pares: se invierte — texto a la izquierda, placeholder a la derecha.
+            const textOnLeft = stepNumber % 2 === 0
             const { circleColor, opacity, y } = stepMotionValues[i]
 
             const circle = (
@@ -141,26 +172,45 @@ export default function ComoFunciona() {
               />
             )
 
-            const content = (
-              <div className={isLeft ? 'pl-14 md:pl-0 md:pr-12 md:text-right' : 'pl-14 md:pl-12 md:text-left'}>
-                <StepContent step={step} opacity={opacity} y={y} />
+            const textBlock = (
+              <div
+                className={
+                  textOnLeft
+                    ? 'pl-14 md:order-1 md:pl-0 md:pr-12 md:text-right'
+                    : 'pl-14 md:order-2 md:pl-12 md:text-left'
+                }
+              >
+                <StepText step={step} opacity={opacity} y={y} />
+              </div>
+            )
+
+            const placeholderBlock = (
+              <div
+                className={
+                  textOnLeft
+                    ? 'mt-6 pl-14 md:order-2 md:mt-0 md:pl-12'
+                    : 'mt-6 pl-14 md:order-1 md:mt-0 md:pl-0 md:pr-12'
+                }
+              >
+                <StepPlaceholder step={step} opacity={opacity} y={y}>
+                  {i === 0 ? (
+                    <AnimAddVehicle isActive={activeStep === 0} />
+                  ) : i === 1 ? (
+                    <AnimPublishVehicle isActive={activeStep === 1} />
+                  ) : i === 2 ? (
+                    <AnimMargin isActive={activeStep === 2} />
+                  ) : (
+                    <AnimSellVehicle isActive={activeStep === 3} />
+                  )}
+                </StepPlaceholder>
               </div>
             )
 
             return (
               <div key={step.title} className="relative mb-20 last:mb-0 md:grid md:grid-cols-2 md:gap-12">
                 {circle}
-                {isLeft ? (
-                  <>
-                    {content}
-                    <div className="hidden md:block" />
-                  </>
-                ) : (
-                  <>
-                    <div className="hidden md:block" />
-                    {content}
-                  </>
-                )}
+                {textBlock}
+                {placeholderBlock}
               </div>
             )
           })}

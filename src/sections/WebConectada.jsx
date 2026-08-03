@@ -33,19 +33,23 @@ function IconCheck({ className }) {
 const points = [
   {
     title: 'Catálogo web sincronizado',
-    description: 'Lo que pasa en StockDrive, pasa en tu web. Se acabó anunciar coches que ya has vendido.',
+    description:
+      'Lo que pasa en StockDrive, pasa en tu web al instante. Marca un coche como vendido y desaparece de tu catálogo automáticamente, sin que tengas que entrar a tu web ni tocar nada.',
   },
   {
     title: 'Control financiero total',
-    description: 'Conoce tu margen bruto real al instante, restando compra, ITV, limpieza y transporte.',
+    description:
+      'Conoce tu margen bruto real en cada operación, restando al precio de venta la compra, la ITV, la limpieza y el transporte. Sabes exactamente cuánto ganas antes de vender, no a fin de mes.',
   },
   {
     title: 'Ventas y contratos en 1 clic',
-    description: 'Registra la venta y genera el contrato de compraventa oficial en PDF, sin plantillas de Word ni rellenar a mano.',
+    description:
+      'Registra la venta con los datos del comprador y genera el contrato de compraventa oficial en PDF automáticamente. Sin plantillas de Word, sin rellenar nada a mano.',
   },
   {
     title: 'Rendimiento de tu web',
-    description: 'Descubre qué vehículos generan más visitas y leads, y por qué canal te contactan.',
+    description:
+      'Descubre cuántas visitas recibe cada vehículo, cuántos leads genera y si tus clientes prefieren escribirte por WhatsApp o llamarte. Sabes qué coches están funcionando y cuáles necesitan un empujón.',
   },
 ]
 
@@ -70,31 +74,15 @@ function PointCard({ point, isActive, onClick }) {
   return (
     <div
       onClick={onClick}
-      className="relative cursor-pointer overflow-hidden rounded-xl border border-slate-200 border-l-[3px] border-l-transparent bg-white p-6 transition-all"
+      className="relative cursor-pointer overflow-hidden rounded-xl border border-slate-200 border-l-[3px] border-l-transparent bg-white p-4 transition-all"
     >
       <ProgressLine isActive={isActive} />
 
-      <h3 className={`text-lg ${isActive ? 'font-bold text-[#0F172A]' : 'font-semibold text-slate-500'}`}>
+      <h3 className={`text-base ${isActive ? 'font-bold text-[#0F172A]' : 'font-semibold text-slate-500'}`}>
         {point.title}
       </h3>
 
-      {/* Desktop: descripción siempre visible */}
-      <p className="mt-2 hidden text-sm text-[#64748B] lg:block">{point.description}</p>
-
-      {/* Móvil: accordion, solo la card activa se expande */}
-      <AnimatePresence initial={false}>
-        {isActive && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden lg:hidden"
-          >
-            <p className="mt-2 text-sm text-[#64748B]">{point.description}</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <p className="mt-2 text-[13px] leading-snug text-[#64748B]">{point.description}</p>
     </div>
   )
 }
@@ -195,17 +183,48 @@ function WidgetSalesContract() {
 
 function WidgetChart() {
   const bars = [40, 70, 55, 90, 65]
+  const [visitCount, setVisitCount] = useState(0)
+
+  useEffect(() => {
+    const target = 247
+    const steps = 30
+    const stepValue = target / steps
+    let current = 0
+    const interval = setInterval(() => {
+      current += stepValue
+      if (current >= target) {
+        setVisitCount(target)
+        clearInterval(interval)
+      } else {
+        setVisitCount(Math.round(current))
+      }
+    }, 800 / steps)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
-    <div className="flex h-24 w-48 items-end justify-center gap-2">
-      {bars.map((h, i) => (
-        <motion.div
-          key={i}
-          initial={{ height: 0 }}
-          animate={{ height: `${h}%` }}
-          transition={{ duration: 0.5, delay: i * 0.08 }}
-          className="w-6 rounded-t bg-[#16255C]"
-        />
-      ))}
+    <div className="w-48">
+      <div className="mb-2 flex items-center justify-between">
+        <div>
+          <p className="text-2xl font-bold text-[#0F172A]">{visitCount}</p>
+          <p className="text-[10px] text-[#64748B]">visitas este mes</p>
+        </div>
+        <span className="flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-1 text-xs font-semibold text-emerald-700">
+          ↑ +18%
+        </span>
+      </div>
+
+      <div className="flex h-24 w-48 items-end justify-center gap-2">
+        {bars.map((h, i) => (
+          <motion.div
+            key={i}
+            initial={{ height: 0 }}
+            animate={{ height: `${h}%` }}
+            transition={{ duration: 0.5, delay: i * 0.08 }}
+            className="w-6 rounded-t bg-[#16255C]"
+          />
+        ))}
+      </div>
     </div>
   )
 }
@@ -231,18 +250,18 @@ export default function WebConectada() {
   const ActiveWidget = widgets[activeIndex]
 
   return (
-    <section id="features" className="bg-white py-24 md:py-32">
+    <section id="features" className="bg-white py-12 md:py-16">
       <div className="mx-auto max-w-6xl px-6">
         <h2 className="mx-auto mb-4 max-w-2xl text-center text-3xl font-bold text-[#0F172A] md:text-5xl">
           Todo lo que necesitas, nada de lo que te sobra.
         </h2>
-        <p className="mx-auto mb-16 max-w-xl text-center text-base text-[#64748B] md:text-lg">
+        <p className="mx-auto mb-10 max-w-xl text-center text-base text-[#64748B] md:text-lg">
           Las herramientas que resuelven el día a día real de gestionar un stock de vehículos.
         </p>
 
         <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2">
-          {/* Columna izquierda: 4 cards */}
-          <div className="space-y-4">
+          {/* Columna izquierda: 4 cards — segunda en móvil, primera en desktop */}
+          <div className="order-2 space-y-3 lg:order-1">
             {points.map((point, index) => (
               <PointCard
                 key={point.title}
@@ -253,8 +272,8 @@ export default function WebConectada() {
             ))}
           </div>
 
-          {/* Columna derecha: panel punteado con widget flotante */}
-          <div className="relative h-72 overflow-hidden rounded-2xl border border-slate-200 bg-white lg:h-full">
+          {/* Columna derecha: panel punteado — primera en móvil, segunda en desktop */}
+          <div className="relative order-1 h-56 overflow-hidden rounded-2xl border border-slate-200 bg-white lg:order-2 lg:h-full">
             <div
               className="pointer-events-none absolute inset-0"
               style={{

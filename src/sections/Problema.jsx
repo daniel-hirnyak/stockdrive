@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { motion, useMotionValue } from 'framer-motion'
 
 function IconGlobe() {
   return (
@@ -105,6 +106,103 @@ const rows = [
   },
 ]
 
+const loopedRows = [...rows, ...rows, ...rows]
+
+function ProblemaCard({ row, i }) {
+  return (
+    <motion.div
+      whileHover={{ y: -4 }}
+      className="relative h-[300px] w-[300px] flex-shrink-0 overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 sm:w-[340px] md:w-[360px]"
+    >
+      <span className="pointer-events-none absolute right-4 top-4 z-0 select-none text-[100px] font-black leading-none text-slate-100">
+        {String((i % rows.length) + 1).padStart(2, '0')}
+      </span>
+
+      <div className="relative z-10">
+        <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-red-50">
+          {row.icon}
+        </div>
+        <span className="mb-2 inline-block rounded-full bg-red-50 px-2.5 py-1 text-xs font-semibold text-red-600">
+          {row.tag}
+        </span>
+        <h3 className="mb-2 text-xl font-bold text-[#0F172A]">{row.title}</h3>
+        <p className="line-clamp-4 text-sm leading-relaxed text-[#64748B]">{row.description}</p>
+      </div>
+    </motion.div>
+  )
+}
+
+function ProblemaMarquee() {
+  const trackRef = useRef(null)
+  const setWidthRef = useRef(0)
+  const resumeTimeoutRef = useRef(null)
+  const x = useMotionValue(0)
+  const [isDragging, setIsDragging] = useState(false)
+
+  useEffect(() => {
+    function measure() {
+      if (trackRef.current) {
+        setWidthRef.current = trackRef.current.scrollWidth / 3
+      }
+    }
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [])
+
+  useEffect(() => {
+    let frameId
+
+    function animate() {
+      if (!isDragging) {
+        const speed = 1.1
+        const setWidth = setWidthRef.current
+        let next = x.get() - speed
+        if (setWidth > 0) {
+          if (next <= -setWidth) next += setWidth
+          if (next > 0) next -= setWidth
+        }
+        x.set(next)
+      }
+      frameId = requestAnimationFrame(animate)
+    }
+
+    frameId = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(frameId)
+  }, [isDragging, x])
+
+  function handleDragStart() {
+    if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current)
+    setIsDragging(true)
+  }
+
+  function handleDragEnd() {
+    resumeTimeoutRef.current = setTimeout(() => setIsDragging(false), 300)
+  }
+
+  return (
+    <div className="relative -mx-6 overflow-hidden px-6">
+      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-[#F8FAFC] to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-[#F8FAFC] to-transparent" />
+
+      <motion.div
+        ref={trackRef}
+        className="flex gap-4 pb-4"
+        style={{ x }}
+        drag="x"
+        dragConstraints={{ left: -Infinity, right: Infinity }}
+        dragElastic={0}
+        onDragStart={handleDragStart}
+        onDragEnd={handleDragEnd}
+      >
+        {loopedRows.map((row, i) => (
+          <ProblemaCard key={`${row.title}-${i}`} row={row} i={i} />
+        ))}
+      </motion.div>
+    </div>
+  )
+}
+
 export default function Problema() {
   return (
     <section id="problema" className="bg-[#F8FAFC] py-16 md:py-24">
@@ -121,33 +219,7 @@ export default function Problema() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {rows.map((row, i) => (
-            <motion.div
-              key={row.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0, transition: { delay: i * 0.1 } }}
-              whileHover={{ y: -4 }}
-              viewport={{ once: true }}
-              className="relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-white p-6"
-            >
-              <span className="pointer-events-none absolute right-4 top-4 z-0 select-none text-[100px] font-black leading-none text-slate-100">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-
-              <div className="relative z-10">
-                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-red-50">
-                  {row.icon}
-                </div>
-                <span className="mb-2 inline-block rounded-full bg-red-50 px-2.5 py-1 text-xs font-semibold text-red-600">
-                  {row.tag}
-                </span>
-                <h3 className="mb-2 text-xl font-bold text-[#0F172A]">{row.title}</h3>
-                <p className="text-sm leading-relaxed text-[#64748B]">{row.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <ProblemaMarquee />
       </div>
     </section>
   )

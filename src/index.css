@@ -9,6 +9,7 @@
 html {
   font-family: 'Manrope', sans-serif;
   -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
 }
 
 body {
