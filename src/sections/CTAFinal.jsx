@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import emailjs from '@emailjs/browser'
+import { supabase } from '../lib/supabase'
 
 function IconCheck({ className }) {
   return (
@@ -114,7 +116,7 @@ const inputClasses =
   'w-full rounded-xl border border-slate-200 py-3.5 pl-10 pr-4 text-sm transition-colors focus:border-[#16255C] focus:outline-none focus:ring-1 focus:ring-[#16255C] focus:shadow-sm'
 
 export default function CTAFinal() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
 
   const bullets = [
     {
@@ -134,13 +136,39 @@ export default function CTAFinal() {
   const [loading, setLoading] = useState(false)
   const [submitted, setSubmitted] = useState(false)
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault()
     setLoading(true)
-    setTimeout(() => {
+
+    try {
+      const { error: dbError } = await supabase.from('leads').insert({
+        nombre: name,
+        compraventa: company,
+        telefono: `${prefijo} ${phone}`,
+        idioma: i18n.language,
+      })
+
+      if (dbError) {
+        console.error('Error al guardar el lead en Supabase:', dbError)
+      }
+
+      await emailjs.send(
+        'service_q41qiln',
+        'template_zb98gqe',
+        {
+          name: name,
+          compraventa: company,
+          telefono: `${prefijo} ${phone}`,
+        },
+        'j0Ocp6U3ceoV4Asf2'
+      )
       setLoading(false)
       setSubmitted(true)
-    }, 1000)
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error)
+      setLoading(false)
+      // Opcional: podrías añadir un estado de error para mostrar un mensaje al usuario
+    }
   }
 
   return (
