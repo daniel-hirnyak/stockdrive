@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 export function AnimSellVehicle({ isActive }) {
+  const { t } = useTranslation()
   const [phase, setPhase] = useState('button') // 'button' | 'generating' | 'done' | 'summary'
   const [cycle, setCycle] = useState(0)
 
@@ -38,7 +40,7 @@ export function AnimSellVehicle({ isActive }) {
                 <path d="M9 11l3 3L22 4" />
                 <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
               </svg>
-              Registrar venta
+              {t('comoFunciona.animSell.buttonLabel')}
             </motion.button>
           )}
 
@@ -61,7 +63,7 @@ export function AnimSellVehicle({ isActive }) {
                   />
                 ))}
               </div>
-              <span className="text-xs font-medium text-[#64748B]">Generando contrato...</span>
+              <span className="text-xs font-medium text-[#64748B]">{t('comoFunciona.animSell.generating')}</span>
             </motion.div>
           )}
 
@@ -81,7 +83,7 @@ export function AnimSellVehicle({ isActive }) {
                     <polyline points="14 2 14 8 20 8" />
                   </svg>
                 </div>
-                <span className="text-xs font-semibold text-[#0F172A]">Contrato.pdf</span>
+                <span className="text-xs font-semibold text-[#0F172A]">{t('comoFunciona.animSell.pdfName')}</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
@@ -91,7 +93,7 @@ export function AnimSellVehicle({ isActive }) {
                   <line x1="18" y1="6" x2="6" y2="18" />
                   <line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
-                Vehículo eliminado del stock
+                {t('comoFunciona.animSell.removed')}
               </div>
             </motion.div>
           )}
@@ -108,16 +110,16 @@ export function AnimSellVehicle({ isActive }) {
                 <span className="h-2 w-2 rounded-full bg-slate-200" />
                 <span className="h-2 w-2 rounded-full bg-slate-200" />
                 <span className="h-2 w-2 rounded-full bg-slate-200" />
-                <span className="ml-1 text-[11px] font-semibold text-[#64748B]">Este mes</span>
+                <span className="ml-1 text-[11px] font-semibold text-[#64748B]">{t('comoFunciona.animSell.summaryHeader')}</span>
               </div>
               <div className="grid grid-cols-2 gap-2 p-3">
                 <div className="rounded-md bg-slate-50 p-2 text-center">
-                  <p className="text-lg font-bold text-[#0F172A]">4</p>
-                  <p className="text-[10px] text-[#64748B]">ventas</p>
+                  <p className="text-lg font-bold text-[#0F172A]">{t('comoFunciona.animSell.salesCount')}</p>
+                  <p className="text-[10px] text-[#64748B]">{t('comoFunciona.animSell.salesLabel')}</p>
                 </div>
                 <div className="rounded-md bg-emerald-50 p-2 text-center">
-                  <p className="text-lg font-bold text-emerald-700">18.400€</p>
-                  <p className="text-[10px] text-emerald-700">generados</p>
+                  <p className="text-lg font-bold text-emerald-700">{t('comoFunciona.animSell.revenue')}</p>
+                  <p className="text-[10px] text-emerald-700">{t('comoFunciona.animSell.revenueLabel')}</p>
                 </div>
               </div>
             </motion.div>

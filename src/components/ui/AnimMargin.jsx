@@ -1,13 +1,16 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-
-const rows = [
-  { label: 'Precio de venta', value: '24.900 €', color: 'text-[#0F172A]' },
-  { label: 'Precio de compra', value: '−18.500 €', color: 'text-red-500' },
-  { label: 'ITV + Limpieza', value: '−320 €', color: 'text-red-500' },
-]
+import { useTranslation } from 'react-i18next'
 
 export function AnimMargin({ isActive }) {
+  const { t } = useTranslation()
+
+  const rows = [
+    { label: t('comoFunciona.animMargin.rowVenta'), value: t('comoFunciona.animMargin.rowVentaValue'), color: 'text-[#0F172A]' },
+    { label: t('comoFunciona.animMargin.rowCompra'), value: t('comoFunciona.animMargin.rowCompraValue'), color: 'text-red-500' },
+    { label: t('comoFunciona.animMargin.rowGastos'), value: t('comoFunciona.animMargin.rowGastosValue'), color: 'text-red-500' },
+  ]
+
   const [visibleRows, setVisibleRows] = useState(0)
   const [showTotal, setShowTotal] = useState(false)
   const [cycle, setCycle] = useState(0)
@@ -32,6 +35,7 @@ export function AnimMargin({ isActive }) {
     timers.push(setTimeout(() => setCycle((c) => c + 1), totalAppears + 2400))
 
     return () => timers.forEach(clearTimeout)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cycle, isActive])
 
   return (
@@ -41,7 +45,7 @@ export function AnimMargin({ isActive }) {
           <span className="h-2 w-2 rounded-full bg-slate-200" />
           <span className="h-2 w-2 rounded-full bg-slate-200" />
           <span className="h-2 w-2 rounded-full bg-slate-200" />
-          <span className="ml-1 text-[11px] font-semibold text-[#64748B]">Mercedes Sprinter</span>
+          <span className="ml-1 text-[11px] font-semibold text-[#64748B]">{t('comoFunciona.animMargin.header')}</span>
         </div>
 
         <div className="space-y-1.5 p-3">
@@ -68,8 +72,8 @@ export function AnimMargin({ isActive }) {
                 transition={{ type: 'spring', stiffness: 300, damping: 24 }}
                 className="mt-2 flex items-center justify-between rounded-md bg-emerald-50 px-2.5 py-2"
               >
-                <span className="text-xs font-semibold text-emerald-700">Margen neto</span>
-                <span className="text-sm font-bold text-emerald-700">+6.080 €</span>
+                <span className="text-xs font-semibold text-emerald-700">{t('comoFunciona.animMargin.totalLabel')}</span>
+                <span className="text-sm font-bold text-emerald-700">{t('comoFunciona.animMargin.totalValue')}</span>
               </motion.div>
             )}
           </AnimatePresence>

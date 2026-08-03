@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useMotionValue } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 function IconGlobe() {
   return (
@@ -75,47 +76,14 @@ function IconAlertTriangle() {
   )
 }
 
-const rows = [
-  {
-    icon: <IconGlobe />,
-    title: 'La web desactualizada',
-    tag: 'Lead perdido',
-    description:
-      'Un cliente te llama por un coche que ya vendiste hace 3 semanas. Tienes que decirle que ya no está, quedas mal y has perdido tiempo de teléfono con un lead inservible.',
-  },
-  {
-    icon: <IconFileText />,
-    title: 'El Excel infinito',
-    tag: 'Margen incierto',
-    description:
-      'Llevas el control en un Excel que solo entiendes tú. Apuntas el precio de compra, pero te olvidas de sumar la ITV o la limpieza. Tu cálculo de margen a fin de mes es siempre una aproximación.',
-  },
-  {
-    icon: <IconRefresh />,
-    title: 'El trabajo de mono',
-    tag: '-3h/semana',
-    description:
-      'Creas la ficha en el Excel. Luego vas a tu web, subes las fotos a mano otra vez, copias y pegas el texto. Un trabajo repetitivo de cero valor.',
-  },
-  {
-    icon: <IconAlertTriangle />,
-    title: 'Descontrol de gastos y márgenes',
-    tag: 'Gastos fantasma',
-    description:
-      'Compras un coche, luego pagas ITV, luego limpieza, luego un arreglo. Cada gasto queda en un ticket o una nota mental distinta. Cuando vendes, no tienes ni idea de cuánto has ganado realmente.',
-  },
-]
-
-const loopedRows = [...rows, ...rows, ...rows]
-
-function ProblemaCard({ row, i }) {
+function ProblemaCard({ row, i, total }) {
   return (
     <motion.div
       whileHover={{ y: -4 }}
       className="relative h-[300px] w-[300px] flex-shrink-0 overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 sm:w-[340px] md:w-[360px]"
     >
       <span className="pointer-events-none absolute right-4 top-4 z-0 select-none text-[100px] font-black leading-none text-slate-100">
-        {String((i % rows.length) + 1).padStart(2, '0')}
+        {String((i % total) + 1).padStart(2, '0')}
       </span>
 
       <div className="relative z-10">
@@ -132,12 +100,14 @@ function ProblemaCard({ row, i }) {
   )
 }
 
-function ProblemaMarquee() {
+function ProblemaMarquee({ rows }) {
   const trackRef = useRef(null)
   const setWidthRef = useRef(0)
   const resumeTimeoutRef = useRef(null)
   const x = useMotionValue(0)
   const [isDragging, setIsDragging] = useState(false)
+
+  const loopedRows = [...rows, ...rows, ...rows]
 
   useEffect(() => {
     function measure() {
@@ -196,7 +166,7 @@ function ProblemaMarquee() {
         onDragEnd={handleDragEnd}
       >
         {loopedRows.map((row, i) => (
-          <ProblemaCard key={`${row.title}-${i}`} row={row} i={i} />
+          <ProblemaCard key={`${row.title}-${i}`} row={row} i={i} total={rows.length} />
         ))}
       </motion.div>
     </div>
@@ -204,22 +174,51 @@ function ProblemaMarquee() {
 }
 
 export default function Problema() {
+  const { t } = useTranslation()
+
+  const rows = [
+    {
+      icon: <IconGlobe />,
+      tag: t('problema.card1Tag'),
+      title: t('problema.card1Title'),
+      description: t('problema.card1Desc'),
+    },
+    {
+      icon: <IconFileText />,
+      tag: t('problema.card2Tag'),
+      title: t('problema.card2Title'),
+      description: t('problema.card2Desc'),
+    },
+    {
+      icon: <IconRefresh />,
+      tag: t('problema.card3Tag'),
+      title: t('problema.card3Title'),
+      description: t('problema.card3Desc'),
+    },
+    {
+      icon: <IconAlertTriangle />,
+      tag: t('problema.card4Tag'),
+      title: t('problema.card4Title'),
+      description: t('problema.card4Desc'),
+    },
+  ]
+
   return (
     <section id="problema" className="bg-[#F8FAFC] py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mx-auto mb-12 max-w-2xl text-center">
           <h2 className="mb-3 text-3xl font-bold text-[#0F172A] md:text-4xl lg:whitespace-nowrap">
-            El coste invisible de "hacerlo todo a mano"
+            {t('problema.title')}
           </h2>
           <p className="mb-1.5 text-xl font-semibold text-[#0F172A]">
-            Probablemente tu día a día se parece a esto.
+            {t('problema.subtitleBold')}
           </p>
           <p className="text-lg text-[#64748B]">
-            Parece normal, pero tiene un coste oculto altísimo en horas y credibilidad.
+            {t('problema.subtitle')}
           </p>
         </div>
 
-        <ProblemaMarquee />
+        <ProblemaMarquee rows={rows} />
       </div>
     </section>
   )

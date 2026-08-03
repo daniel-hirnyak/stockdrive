@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 const languages = [
   { code: 'ES', label: 'Español' },
@@ -38,7 +39,7 @@ function WhatsAppIcon() {
 }
 
 function LanguageSelector({ variant = 'compact' }) {
-  const [lang, setLang] = useState('ES')
+  const { i18n } = useTranslation()
   const [open, setOpen] = useState(false)
   const containerRef = useRef(null)
 
@@ -52,13 +53,13 @@ function LanguageSelector({ variant = 'compact' }) {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  // TODO: Implementar i18n completo — al cambiar idioma debe traducirse todo el contenido de la landing (actualmente solo cambia el indicador visual)
   function selectLanguage(code) {
-    setLang(code)
+    i18n.changeLanguage(code.toLowerCase()) // 'es' | 'ca' | 'en'
     setOpen(false)
   }
 
-  const currentLabel = languages.find((l) => l.code === lang)?.label ?? lang
+  const currentCode = i18n.language.toUpperCase()
+  const currentLabel = languages.find((l) => l.code === currentCode)?.label ?? currentCode
   const isExpanded = variant === 'expanded'
 
   return (
@@ -79,7 +80,7 @@ function LanguageSelector({ variant = 'compact' }) {
           aria-label="Cambiar idioma"
         >
           <span className="flex h-6 items-center justify-center rounded-md bg-[#16255C] px-2 text-[11px] font-bold text-white">
-            {lang}
+            {currentCode}
           </span>
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="text-slate-400">
             <polyline points="6 9 12 15 18 9" />
@@ -112,6 +113,7 @@ function LanguageSelector({ variant = 'compact' }) {
 }
 
 export default function Navbar() {
+  const { t } = useTranslation()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const { scrollY } = useScroll()
@@ -121,10 +123,10 @@ export default function Navbar() {
   })
 
   const links = [
-    { label: 'Cómo funciona', href: '#como-funciona' },
-    { label: 'Producto', href: '#features' },
-    { label: 'Comparativa', href: '#comparativa' },
-    { label: 'FAQ', href: '#faq' },
+    { key: 'comoFunciona', href: '#como-funciona' },
+    { key: 'producto', href: '#features' },
+    { key: 'comparativa', href: '#comparativa' },
+    { key: 'faq', href: '#faq' },
   ]
 
   return (
@@ -150,11 +152,11 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-8 ml-10">
             {links.map(link => (
               <a
-                key={link.label}
+                key={link.key}
                 href={link.href}
                 className="text-sm font-medium text-[#475569] hover:text-[#0F172A] transition-colors no-underline"
               >
-                {link.label}
+                {t(`nav.${link.key}`)}
               </a>
             ))}
           </div>
@@ -180,7 +182,7 @@ export default function Navbar() {
               href="/login"
               className="hidden md:inline-flex items-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-[#0F172A] no-underline transition-colors hover:border-slate-400 hover:bg-slate-50"
             >
-              Acceso
+              {t('nav.acceso')}
             </a>
 
             {/* 7. Botón Solicitar demo — solo desktop */}
@@ -188,7 +190,7 @@ export default function Navbar() {
               href="#cta"
               className="hidden md:inline-flex text-sm font-semibold text-white bg-[#16255C] hover:opacity-90 transition-opacity no-underline px-4 py-2 rounded-lg"
             >
-              Solicitar demo
+              {t('nav.solicitarDemo')}
             </a>
 
             {/* Hamburger — solo móvil */}
@@ -230,12 +232,12 @@ export default function Navbar() {
           <div className="flex flex-col">
             {links.map(link => (
               <a
-                key={link.label}
+                key={link.key}
                 href={link.href}
                 className="flex items-center justify-between border-b border-slate-100 py-3.5 text-base font-medium text-[#0F172A] no-underline last:border-b-0"
                 onClick={() => setMobileOpen(false)}
               >
-                {link.label}
+                {t(`nav.${link.key}`)}
                 <IconChevronDown className="h-3.5 w-3.5 text-slate-400" />
               </a>
             ))}
@@ -248,14 +250,14 @@ export default function Navbar() {
               className="rounded-md border border-slate-300 bg-white py-3 text-center text-sm font-semibold text-[#0F172A] no-underline"
               onClick={() => setMobileOpen(false)}
             >
-              Acceso
+              {t('nav.acceso')}
             </a>
             <a
               href="#cta"
               className="rounded-md bg-[#16255C] py-3 text-center text-sm font-semibold text-white no-underline"
               onClick={() => setMobileOpen(false)}
             >
-              Solicitar demo
+              {t('nav.solicitarDemo')}
             </a>
             <a
               href="https://wa.me/34666008252"
@@ -264,7 +266,7 @@ export default function Navbar() {
               className="flex items-center justify-center gap-2 rounded-md bg-[#25D366] py-3 text-sm font-semibold text-white no-underline"
             >
               <IconWhatsApp className="h-5 w-5" />
-              Hablar por WhatsApp
+              {t('nav.hablarPorWhatsapp')}
             </a>
           </div>
 

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 function IconRefresh({ className }) {
   return (
@@ -29,29 +30,6 @@ function IconCheck({ className }) {
     </svg>
   )
 }
-
-const points = [
-  {
-    title: 'Catálogo web sincronizado',
-    description:
-      'Lo que pasa en StockDrive, pasa en tu web al instante. Marca un coche como vendido y desaparece de tu catálogo automáticamente, sin que tengas que entrar a tu web ni tocar nada.',
-  },
-  {
-    title: 'Control financiero total',
-    description:
-      'Conoce tu margen bruto real en cada operación, restando al precio de venta la compra, la ITV, la limpieza y el transporte. Sabes exactamente cuánto ganas antes de vender, no a fin de mes.',
-  },
-  {
-    title: 'Ventas y contratos en 1 clic',
-    description:
-      'Registra la venta con los datos del comprador y genera el contrato de compraventa oficial en PDF automáticamente. Sin plantillas de Word, sin rellenar nada a mano.',
-  },
-  {
-    title: 'Rendimiento de tu web',
-    description:
-      'Descubre cuántas visitas recibe cada vehículo, cuántos leads genera y si tus clientes prefieren escribirte por WhatsApp o llamarte. Sabes qué coches están funcionando y cuáles necesitan un empujón.',
-  },
-]
 
 const INTERVAL_MS = 4000
 
@@ -90,13 +68,14 @@ function PointCard({ point, isActive, onClick }) {
 // ── Widgets del panel derecho, uno por cada punto activo ──────────────
 
 function WidgetSync() {
+  const { t } = useTranslation()
   return (
     <div className="flex flex-col items-center">
       <div className="flex items-center gap-3">
         <div className="flex h-16 w-20 flex-col items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50">
           <div className="h-1.5 w-10 rounded-full bg-slate-300" />
           <div className="h-1.5 w-8 rounded-full bg-slate-300" />
-          <span className="mt-1 text-[10px] font-medium text-slate-400">Panel</span>
+          <span className="mt-1 text-[10px] font-medium text-slate-400">{t('webConectada.widget1Panel')}</span>
         </div>
         <motion.div initial={{ rotate: -30, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} transition={{ duration: 0.4 }}>
           <IconRefresh className="h-5 w-5 text-[#16255C]" />
@@ -104,49 +83,47 @@ function WidgetSync() {
         <div className="flex h-16 w-20 flex-col items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50">
           <div className="h-1.5 w-10 rounded-full bg-slate-300" />
           <div className="h-1.5 w-8 rounded-full bg-slate-300" />
-          <span className="mt-1 text-[10px] font-medium text-slate-400">Web</span>
+          <span className="mt-1 text-[10px] font-medium text-slate-400">{t('webConectada.widget1Web')}</span>
         </div>
       </div>
       <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} className="mt-4 text-xs font-medium text-green-600">
-        Sincronizado hace 2s
+        {t('webConectada.widget1Synced')}
       </motion.p>
     </div>
   )
 }
 
 function WidgetFinance() {
-  const rows = [
-    { label: 'Compra', value: '-12.500€' },
-    { label: 'Gastos', value: '-800€' },
-  ]
+  const { t } = useTranslation()
+  const rows = [t('webConectada.widget2Compra'), t('webConectada.widget2Gastos')]
+
   return (
     <div className="w-48">
       {rows.map((row, i) => (
         <motion.div
-          key={row.label}
+          key={row}
           initial={{ opacity: 0, x: -8 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: i * 0.1 }}
-          className="flex justify-between py-1.5 text-sm text-slate-500"
+          className="py-1.5 text-sm text-slate-500"
         >
-          <span>{row.label}</span>
-          <span className="font-medium text-slate-700">{row.value}</span>
+          {row}
         </motion.div>
       ))}
       <motion.div
         initial={{ opacity: 0, x: -8 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.2 }}
-        className="mt-1 flex justify-between border-t border-slate-200 pt-2 text-sm"
+        className="mt-1 border-t border-slate-200 pt-2 text-sm font-semibold text-green-600"
       >
-        <span className="font-semibold text-slate-700">Margen</span>
-        <span className="font-bold text-green-600">+2.200€</span>
+        {t('webConectada.widget2Margen')}
       </motion.div>
     </div>
   )
 }
 
 function WidgetSalesContract() {
+  const { t } = useTranslation()
   return (
     <div className="flex flex-col items-center gap-4">
       <motion.div
@@ -155,8 +132,8 @@ function WidgetSalesContract() {
         className="flex w-56 items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2"
       >
         <IconCar className="h-4 w-4 flex-shrink-0 text-[#16255C]" />
-        <span className="flex-1 truncate text-xs font-medium text-slate-700">Sprinter 2021</span>
-        <span className="text-xs font-semibold text-slate-700">15.900€</span>
+        <span className="flex-1 truncate text-xs font-medium text-slate-700">{t('webConectada.widget3Vehicle')}</span>
+        <span className="text-xs font-semibold text-slate-700">{t('webConectada.widget3Price')}</span>
       </motion.div>
 
       <div className="flex items-center gap-2">
@@ -166,7 +143,7 @@ function WidgetSalesContract() {
           transition={{ delay: 0.15 }}
           className="rounded-lg bg-[#16255C] px-4 py-2 text-xs font-semibold text-white"
         >
-          Generar PDF
+          {t('webConectada.widget3Generate')}
         </motion.button>
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
@@ -182,6 +159,7 @@ function WidgetSalesContract() {
 }
 
 function WidgetChart() {
+  const { t } = useTranslation()
   const bars = [40, 70, 55, 90, 65]
   const [visitCount, setVisitCount] = useState(0)
 
@@ -207,7 +185,7 @@ function WidgetChart() {
       <div className="mb-2 flex items-center justify-between">
         <div>
           <p className="text-2xl font-bold text-[#0F172A]">{visitCount}</p>
-          <p className="text-[10px] text-[#64748B]">visitas este mes</p>
+          <p className="text-[10px] text-[#64748B]">{t('webConectada.widget4Visits')}</p>
         </div>
         <span className="flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-1 text-xs font-semibold text-emerald-700">
           ↑ +18%
@@ -232,6 +210,27 @@ function WidgetChart() {
 const widgets = [WidgetSync, WidgetFinance, WidgetSalesContract, WidgetChart]
 
 export default function WebConectada() {
+  const { t } = useTranslation()
+
+  const points = [
+    {
+      title: t('webConectada.card1Title'),
+      description: t('webConectada.card1Desc'),
+    },
+    {
+      title: t('webConectada.card2Title'),
+      description: t('webConectada.card2Desc'),
+    },
+    {
+      title: t('webConectada.card3Title'),
+      description: t('webConectada.card3Desc'),
+    },
+    {
+      title: t('webConectada.card4Title'),
+      description: t('webConectada.card4Desc'),
+    },
+  ]
+
   const [activeIndex, setActiveIndex] = useState(0)
   const intervalRef = useRef(null)
 
@@ -241,6 +240,7 @@ export default function WebConectada() {
       setActiveIndex((prev) => (prev + 1) % points.length)
     }, INTERVAL_MS)
     return () => clearInterval(intervalRef.current)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeIndex])
 
   function handleClick(index) {
@@ -253,10 +253,10 @@ export default function WebConectada() {
     <section id="features" className="bg-white py-12 md:py-16">
       <div className="mx-auto max-w-6xl px-6">
         <h2 className="mx-auto mb-4 max-w-2xl text-center text-3xl font-bold text-[#0F172A] md:text-5xl">
-          Todo lo que necesitas, nada de lo que te sobra.
+          {t('webConectada.title')}
         </h2>
         <p className="mx-auto mb-10 max-w-xl text-center text-base text-[#64748B] md:text-lg">
-          Las herramientas que resuelven el día a día real de gestionar un stock de vehículos.
+          {t('webConectada.subtitle')}
         </p>
 
         <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2">

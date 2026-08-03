@@ -1,19 +1,22 @@
 import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 import { AnimatedUnderline } from '../components/ui/AnimatedUnderline'
 
-const rotatingWords = ['STOCK', 'CATÁLOGO', 'MARGEN']
-const wordWidths = ['5.5ch', '9ch', '7ch'] // STOCK, CATÁLOGO, MARGEN
-
-function RotatingWord() {
+function RotatingWord({ words }) {
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % rotatingWords.length)
+      setIndex((prev) => (prev + 1) % words.length)
     }, 2500)
     return () => clearInterval(interval)
-  }, [])
+  }, [words])
+
+  // Ancho proporcional a la longitud real de cada palabra (+2 de margen),
+  // recalculado en cada render a partir de las palabras traducidas — así
+  // funciona automáticamente para cualquier idioma sin valores hardcodeados.
+  const wordWidths = words.map((word) => `${word.length + 2}ch`)
 
   return (
     <span
@@ -25,7 +28,7 @@ function RotatingWord() {
         transition: 'width 0.4s ease-in-out',
       }}
     >
-      {rotatingWords.map((word, i) => (
+      {words.map((word, i) => (
         // Doble capa: este div hace el centrado vertical ESTÁTICO (CSS puro),
         // separado del motion.span de abajo que solo anima y/opacity — así
         // no compiten por la misma propiedad transform.
@@ -50,7 +53,10 @@ function RotatingWord() {
 }
 
 export default function Hero() {
+  const { t } = useTranslation()
   const sectionRef = useRef(null)
+
+  const rotatingWords = [t('hero.badgeStock'), t('hero.badgeCatalogo'), t('hero.badgeMargen')]
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -85,8 +91,8 @@ export default function Hero() {
           >
             <span className="h-2 w-2 shrink-0 rounded-full bg-[#16255C]" />
             <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-[#16255C]">
-              <span>GESTIONA TU</span>
-              <RotatingWord />
+              <span>{t('hero.gestionaTu')}</span>
+              <RotatingWord words={rotatingWords} />
             </div>
           </motion.div>
 
@@ -96,10 +102,10 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
             className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-[#0F172A] leading-[1.15] mb-5"
           >
-            Tu concesionario, sin caos.
+            {t('hero.titleLine1')}
             <br />
             <span className="relative inline-block text-[#16255C]">
-              Todo en un solo lugar.
+              {t('hero.titleLine2')}
               <AnimatedUnderline color="#16255C" />
             </span>
           </motion.h1>
@@ -110,7 +116,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
             className="mx-auto mb-8 max-w-[640px] text-lg leading-relaxed text-[#64748B] md:text-xl"
           >
-            El software que controla tu stock, calcula tus márgenes al céntimo y mantiene tu web al día. Sin Excel, sin sorpresas a fin de mes.
+            {t('hero.subtitle')}
           </motion.p>
 
           <motion.a
@@ -120,7 +126,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
             className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#16255C] px-8 py-3.5 text-sm font-semibold text-white no-underline shadow-lg shadow-[#16255C]/20 transition-all hover:scale-105 hover:shadow-xl"
           >
-            Solicitar una demo
+            {t('hero.cta')}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
           </motion.a>
 
@@ -130,7 +136,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
             className="mt-4 text-sm text-[#94A3B8]"
           >
-            Demo de 15 min · Sin compromiso · Respuesta directa
+            {t('hero.ctaSubtext')}
           </motion.p>
         </div>
 

@@ -13,8 +13,10 @@
     "@supabase/supabase-js": "^2.111.0",
     "@tailwindcss/vite": "^4.3.3",
     "framer-motion": "^12.43.0",
+    "i18next": "^26.3.6",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "react-i18next": "^17.0.11",
     "react-router-dom": "^7.18.2",
     "tailwindcss": "^4.3.3"
   },

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 function IconChevron({ className }) {
   return (
@@ -8,39 +9,6 @@ function IconChevron({ className }) {
     </svg>
   )
 }
-
-const faqs = [
-  {
-    question: '¿Publicáis en Coches.net, AutoScout24 o Wallapop?',
-    answer:
-      'Por ahora no. StockDrive gestiona y sincroniza tu propio catálogo web, y nos enfocamos en que tu canal directo esté siempre perfecto y tu stock controlado. La publicación automática en portales es algo que tenemos en el radar para el futuro.',
-  },
-  {
-    question: '¿Es un software de facturación o contabilidad?',
-    answer:
-      'Por ahora es una herramienta específica para la gestión de stock, operaciones de venta y catálogo web. Para la contabilidad y presentación de impuestos, sigue usando los servicios de tu gestoría. Es un área que iremos ampliando según lo que necesiten los concesionarios que confían en nosotros.',
-  },
-  {
-    question: '¿Tengo que instalar alguna aplicación en el móvil?',
-    answer:
-      'No hay ninguna app nativa que ocupe espacio o requiera actualizaciones constantes. StockDrive es una web app totalmente responsive (PWA). Puedes instalarla directamente en la pantalla de inicio de tu móvil con un botón y funciona exactamente igual que una app.',
-  },
-  {
-    question: '¿Cuánto cuesta y hay permanencia?',
-    answer:
-      'Contacta con nosotros para una propuesta ajustada al tamaño de tu stock. No hay permanencia obligatoria: si StockDrive no encaja con tu forma de trabajar, puedes darte de baja cuando quieras.',
-  },
-  {
-    question: '¿Qué pasa con mis datos si dejo de usar StockDrive?',
-    answer:
-      'Tus datos son tuyos. Si decides dejar de usar la plataforma, te ayudamos a exportar tu información (stock, ventas, contactos) en un formato que puedas seguir usando donde quieras.',
-  },
-  {
-    question: '¿Ofrecéis soporte si tengo un problema?',
-    answer:
-      'Sí, soporte directo por WhatsApp y email, con respuesta en el mismo día laborable. Nada de tickets perdidos en un sistema automatizado.',
-  },
-]
 
 function FAQItem({ faq, index, isOpen, onClick }) {
   return (
@@ -83,7 +51,17 @@ function FAQItem({ faq, index, isOpen, onClick }) {
 }
 
 export default function FAQ() {
+  const { t } = useTranslation()
   const [openIndex, setOpenIndex] = useState(null)
+
+  const faqs = [
+    { question: t('faq.q1'), answer: t('faq.a1') },
+    { question: t('faq.q2'), answer: t('faq.a2') },
+    { question: t('faq.q3'), answer: t('faq.a3') },
+    { question: t('faq.q4'), answer: t('faq.a4') },
+    { question: t('faq.q5'), answer: t('faq.a5') },
+    { question: t('faq.q6'), answer: t('faq.a6') },
+  ]
 
   function handleClick(index) {
     setOpenIndex((prev) => (prev === index ? null : index))
@@ -93,10 +71,10 @@ export default function FAQ() {
     <section id="faq" className="bg-white py-16 md:py-20">
       <div className="mx-auto max-w-3xl px-6">
         <h2 className="mb-4 text-center text-3xl font-bold text-[#0F172A] md:text-4xl">
-          Preguntas frecuentes
+          {t('faq.title')}
         </h2>
         <p className="mb-12 text-center text-lg text-[#64748B]">
-          Todo lo que necesitas saber antes de empezar.
+          {t('faq.subtitle')}
         </p>
 
         <div>

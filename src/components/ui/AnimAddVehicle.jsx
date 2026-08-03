@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-
-const MARCA_TEXT = 'Mercedes Sprinter'
-const FIELD_2_TEXT = '18.500 €'
+import { useTranslation } from 'react-i18next'
 
 function TypedField({ label, value, target }) {
   return (
@@ -23,6 +21,10 @@ function TypedField({ label, value, target }) {
 }
 
 export function AnimAddVehicle({ isActive }) {
+  const { t } = useTranslation()
+  const MARCA_TEXT = t('comoFunciona.animAddVehicle.marcaValue')
+  const FIELD_2_TEXT = t('comoFunciona.animAddVehicle.precioValue')
+
   const [phase, setPhase] = useState('button') // 'button' | 'form' | 'done'
   const [marca, setMarca] = useState('')
   const [field2, setField2] = useState('')
@@ -62,7 +64,7 @@ export function AnimAddVehicle({ isActive }) {
     timers.push(setTimeout(() => setCycle((c) => c + 1), field2Done + 2200))
 
     return () => timers.forEach(clearTimeout)
-  }, [cycle, isActive])
+  }, [cycle, isActive, MARCA_TEXT, FIELD_2_TEXT])
 
   return (
     <div className="flex h-full w-full items-center justify-center p-4">
@@ -81,7 +83,7 @@ export function AnimAddVehicle({ isActive }) {
                 <line x1="12" y1="5" x2="12" y2="19" />
                 <line x1="5" y1="12" x2="19" y2="12" />
               </svg>
-              Añadir vehículo
+              {t('comoFunciona.animAddVehicle.buttonLabel')}
             </motion.button>
           )}
 
@@ -97,11 +99,11 @@ export function AnimAddVehicle({ isActive }) {
                 <span className="h-2 w-2 rounded-full bg-slate-200" />
                 <span className="h-2 w-2 rounded-full bg-slate-200" />
                 <span className="h-2 w-2 rounded-full bg-slate-200" />
-                <span className="ml-1 text-[11px] font-semibold text-[#64748B]">Nuevo vehículo</span>
+                <span className="ml-1 text-[11px] font-semibold text-[#64748B]">{t('comoFunciona.animAddVehicle.headerLabel')}</span>
               </div>
               <div className="space-y-2.5 p-2.5">
-                <TypedField label="Marca y modelo" value={marca} target={MARCA_TEXT} />
-                <TypedField label="Precio de compra" value={field2} target={FIELD_2_TEXT} />
+                <TypedField label={t('comoFunciona.animAddVehicle.fieldMarca')} value={marca} target={MARCA_TEXT} />
+                <TypedField label={t('comoFunciona.animAddVehicle.fieldPrecio')} value={field2} target={FIELD_2_TEXT} />
               </div>
             </motion.div>
           )}
@@ -118,7 +120,7 @@ export function AnimAddVehicle({ isActive }) {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              Vehículo guardado
+              {t('comoFunciona.animAddVehicle.saved')}
             </motion.div>
           )}
         </AnimatePresence>

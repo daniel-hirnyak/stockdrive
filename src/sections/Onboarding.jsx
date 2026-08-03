@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 function IconCheck({ className }) {
   return (
@@ -16,24 +17,6 @@ function IconShieldCheck({ className }) {
     </svg>
   )
 }
-
-const steps = [
-  {
-    number: 1,
-    title: 'Configuramos tu cuenta',
-    description: 'Con los datos de tu compraventa, tu logo y tus colores. Todo listo antes de que empieces.',
-  },
-  {
-    number: 2,
-    title: 'Importamos tu stock inicial',
-    description: 'No partes de cero. Migramos los vehículos que ya tienes en tu inventario actual.',
-  },
-  {
-    number: 3,
-    title: 'Formamos a tu equipo',
-    description: 'Una sesión de 20 minutos para que todos sepan usar el panel desde el primer día.',
-  },
-]
 
 function Step({ step, index }) {
   const delay = index * 0.15
@@ -66,13 +49,33 @@ function Step({ step, index }) {
 }
 
 export default function Onboarding() {
+  const { t } = useTranslation()
+
+  const steps = [
+    {
+      number: 1,
+      title: t('onboarding.step1Title'),
+      description: t('onboarding.step1Desc'),
+    },
+    {
+      number: 2,
+      title: t('onboarding.step2Title'),
+      description: t('onboarding.step2Desc'),
+    },
+    {
+      number: 3,
+      title: t('onboarding.step3Title'),
+      description: t('onboarding.step3Desc'),
+    },
+  ]
+
   return (
     <section id="onboarding" className="bg-[#F8FAFC] py-16 md:py-20">
       <div className="mx-auto max-w-4xl px-6">
         <div className="mb-4 flex justify-center">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-700">
             <IconCheck className="h-3 w-3" />
-            Configuración incluida, sin coste extra
+            {t('onboarding.badge')}
           </span>
         </div>
 
@@ -81,10 +84,10 @@ export default function Onboarding() {
         </div>
 
         <h2 className="mx-auto mb-3 max-w-2xl text-center text-2xl font-bold text-[#0F172A] md:text-4xl">
-          No te entregamos una cuenta vacía y nos olvidamos.
+          {t('onboarding.title')}
         </h2>
         <p className="mx-auto mb-10 max-w-xl text-center text-lg text-[#64748B]">
-          Sabemos que cambiar de sistema da pereza. Por eso nos encargamos de que empieces a trabajar desde el primer día.
+          {t('onboarding.subtitle')}
         </p>
 
         <div className="relative grid grid-cols-1 gap-6 md:grid-cols-3">

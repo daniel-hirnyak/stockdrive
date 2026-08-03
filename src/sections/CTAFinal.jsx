@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 function IconCheck({ className }) {
   return (
@@ -36,17 +37,6 @@ function IconBuilding({ className }) {
     </svg>
   )
 }
-
-const bullets = [
-  {
-    title: 'Demo directa de 20 minutos',
-    subtitle: 'Vamos al grano, sin rodeos.',
-  },
-  {
-    title: 'Configuración guiada',
-    subtitle: 'Te ayudamos a importar tu primer stock.',
-  },
-]
 
 function Bullet({ bullet }) {
   return (
@@ -124,6 +114,19 @@ const inputClasses =
   'w-full rounded-xl border border-slate-200 py-3.5 pl-10 pr-4 text-sm transition-colors focus:border-[#16255C] focus:outline-none focus:ring-1 focus:ring-[#16255C] focus:shadow-sm'
 
 export default function CTAFinal() {
+  const { t } = useTranslation()
+
+  const bullets = [
+    {
+      title: t('ctaFinal.bullet1Title'),
+      subtitle: t('ctaFinal.bullet1Sub'),
+    },
+    {
+      title: t('ctaFinal.bullet2Title'),
+      subtitle: t('ctaFinal.bullet2Sub'),
+    },
+  ]
+
   const [name, setName] = useState('')
   const [company, setCompany] = useState('')
   const [phone, setPhone] = useState('')
@@ -147,10 +150,10 @@ export default function CTAFinal() {
           {/* Columna izquierda: texto persuasivo */}
           <div>
             <h2 className="mb-4 text-3xl font-bold text-[#0F172A] md:text-4xl">
-              Toma el control de tu stock hoy mismo.
+              {t('ctaFinal.title')}
             </h2>
             <p className="mb-8 text-lg leading-relaxed text-[#64748B]">
-              Solicita una demo de 20 minutos. Sin compromisos ni presentaciones aburridas. Te enseñamos el producto real funcionando y vemos si encaja con tu forma de trabajar.
+              {t('ctaFinal.description')}
             </p>
 
             <div className="space-y-5">
@@ -187,7 +190,7 @@ export default function CTAFinal() {
                     <IconCheck className="h-8 w-8 text-emerald-600" />
                   </motion.span>
                   <p className="text-lg font-semibold text-[#0F172A]">
-                    ¡Gracias! Te contactaremos en menos de 24h.
+                    {t('ctaFinal.successTitle')} {t('ctaFinal.successMessage')}
                   </p>
                 </motion.div>
               ) : (
@@ -199,12 +202,12 @@ export default function CTAFinal() {
                   transition={{ duration: 0.3 }}
                   onSubmit={handleSubmit}
                 >
-                  <h3 className="mb-6 text-xl font-bold text-[#0F172A]">Solicita tu demo gratuita</h3>
+                  <h3 className="mb-6 text-xl font-bold text-[#0F172A]">{t('ctaFinal.formTitle')}</h3>
 
                   <div>
                     <StepField
                       step={1}
-                      label="Nombre y apellidos"
+                      label={t('ctaFinal.labelNombre')}
                       required
                       isFilled={name.trim().length > 0}
                       icon={<IconUser className="h-4 w-4" />}
@@ -214,14 +217,14 @@ export default function CTAFinal() {
                         required
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        placeholder="Ej. Carlos Martínez"
+                        placeholder={t('ctaFinal.placeholderNombre')}
                         className={inputClasses}
                       />
                     </StepField>
 
                     <StepField
                       step={2}
-                      label="Nombre de tu compraventa"
+                      label={t('ctaFinal.labelCompraventa')}
                       required
                       isFilled={company.trim().length > 0}
                       icon={<IconBuilding className="h-4 w-4" />}
@@ -231,14 +234,14 @@ export default function CTAFinal() {
                         required
                         value={company}
                         onChange={(e) => setCompany(e.target.value)}
-                        placeholder="Ej. Autos Martínez"
+                        placeholder={t('ctaFinal.placeholderCompraventa')}
                         className={inputClasses}
                       />
                     </StepField>
 
                     <StepField
                       step={3}
-                      label="Teléfono móvil"
+                      label={t('ctaFinal.labelTelefono')}
                       required
                       isFilled={phone.length >= 9}
                     >
@@ -260,7 +263,7 @@ export default function CTAFinal() {
                           inputMode="numeric"
                           pattern="[0-9]*"
                           maxLength={9}
-                          placeholder="600 000 000"
+                          placeholder={t('ctaFinal.placeholderTelefono')}
                           value={phone}
                           onChange={(e) => setPhone(e.target.value.replace(/[^0-9]/g, ''))}
                           className="flex-1 rounded-xl border border-slate-200 px-4 py-3.5 text-sm transition-colors focus:border-[#16255C] focus:outline-none focus:ring-1 focus:ring-[#16255C] focus:shadow-sm"
@@ -275,16 +278,16 @@ export default function CTAFinal() {
                     disabled={loading}
                     className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-[#16255C] py-4 text-base font-bold text-white shadow-lg shadow-[#16255C]/25 transition-all hover:opacity-90 hover:shadow-xl disabled:opacity-70"
                   >
-                    {loading ? 'Enviando...' : (
+                    {loading ? t('ctaFinal.submitLoading') : (
                       <>
-                        Solicitar demo sin compromiso
+                        {t('ctaFinal.submitButton')}
                         <IconArrowRight className="h-4 w-4" />
                       </>
                     )}
                   </button>
 
                   <p className="mt-3 text-center text-xs text-slate-400">
-                    Tus datos están seguros. Solo los usaremos para agendar la demo.
+                    {t('ctaFinal.privacyNote')}
                   </p>
                 </motion.form>
               )}

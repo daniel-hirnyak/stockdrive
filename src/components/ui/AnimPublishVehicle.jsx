@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 export function AnimPublishVehicle({ isActive }) {
+  const { t } = useTranslation()
   const [phase, setPhase] = useState('panel') // 'panel' | 'transfer' | 'web'
   const [cycle, setCycle] = useState(0)
 
@@ -37,13 +39,13 @@ export function AnimPublishVehicle({ isActive }) {
                 <span className="h-2 w-2 rounded-full bg-slate-200" />
                 <span className="h-2 w-2 rounded-full bg-slate-200" />
                 <span className="h-2 w-2 rounded-full bg-slate-200" />
-                <span className="ml-1 text-[11px] font-semibold text-[#64748B]">StockDrive</span>
+                <span className="ml-1 text-[11px] font-semibold text-[#64748B]">{t('comoFunciona.animPublish.panelHeader')}</span>
               </div>
               <div className="p-3">
                 <div className="rounded-md border border-slate-200 bg-slate-50 p-2.5">
-                  <p className="text-xs font-semibold text-[#0F172A]">Mercedes Sprinter</p>
+                  <p className="text-xs font-semibold text-[#0F172A]">{t('comoFunciona.animPublish.vehicleName')}</p>
                   <span className="mt-1.5 inline-flex items-center rounded-full bg-[#16255C]/10 px-2 py-0.5 text-[10px] font-semibold text-[#16255C]">
-                    Disponible
+                    {t('comoFunciona.animPublish.available')}
                   </span>
                 </div>
               </div>
@@ -69,7 +71,7 @@ export function AnimPublishVehicle({ isActive }) {
                   <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
                 </svg>
               </motion.div>
-              <span className="text-xs font-medium text-[#64748B]">Publicando...</span>
+              <span className="text-xs font-medium text-[#64748B]">{t('comoFunciona.animPublish.publishing')}</span>
             </motion.div>
           )}
 
@@ -85,16 +87,16 @@ export function AnimPublishVehicle({ isActive }) {
                 <span className="h-2 w-2 rounded-full bg-slate-200" />
                 <span className="h-2 w-2 rounded-full bg-slate-200" />
                 <span className="h-2 w-2 rounded-full bg-slate-200" />
-                <span className="ml-1 text-[11px] font-semibold text-[#64748B]">tuweb.com</span>
+                <span className="ml-1 text-[11px] font-semibold text-[#64748B]">{t('comoFunciona.animPublish.webHeader')}</span>
               </div>
               <div className="p-3">
                 <div className="rounded-md border border-slate-200 bg-slate-50 p-2.5">
-                  <p className="text-xs font-semibold text-[#0F172A]">Mercedes Sprinter</p>
+                  <p className="text-xs font-semibold text-[#0F172A]">{t('comoFunciona.animPublish.vehicleName')}</p>
                   <span className="mt-1.5 inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold text-emerald-700">
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
-                    En tu web
+                    {t('comoFunciona.animPublish.onWeb')}
                   </span>
                 </div>
               </div>
