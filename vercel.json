@@ -4,6 +4,6 @@
   "rewrites": [
     { "source": "/demo/(.*)", "destination": "/demo/$1" },
     { "source": "/template/(.*)", "destination": "/template/$1" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/((?!demo/|template/|assets/|.*\\.[a-zA-Z0-9]+$).*)", "destination": "/index.html" }
   ]
 }
