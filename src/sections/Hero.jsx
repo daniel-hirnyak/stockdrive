@@ -150,7 +150,7 @@ export default function Hero() {
           >
             <img
               src="/assets/screenshot-inicio.png"
-              alt="Panel de StockDrive"
+              alt="Panel de StockDrive mostrando vehículos en stock, capital invertido y márgenes por vehículo"
               width={2000}
               height={1301}
               fetchPriority="high"
