@@ -1,10 +1,5 @@
 import { useState } from 'react'
-import { createClient } from '@supabase/supabase-js'
-
-const supabase = createClient(
-  'https://farpikktngdcydpserjl.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZhcnBpa2t0bmdkY3lkcHNlcmpsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzMDY2NjUsImV4cCI6MjEwMDg4MjY2NX0.RTFDhdbqDz74GcPlnSE7ZKKKGcQld-u8UOOVcXUii7Y'
-)
+import { supabaseAuth as supabase } from '../lib/supabase'
 
 export default function Login() {
   const [email, setEmail] = useState('')

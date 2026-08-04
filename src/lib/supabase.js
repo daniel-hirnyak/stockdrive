@@ -1,11 +1,11 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = 'https://farpikktngdcydpserjl.supabase.co'
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZhcnBpa2t0bmdkY3lkcHNlcmpsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzMDY2NjUsImV4cCI6MjEwMDg4MjY2NX0.RTFDhdbqDz74GcPlnSE7ZKKKGcQld-u8UOOVcXUii7Y'
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 
 // persistSession: false — este cliente es para el formulario público (lead capture),
 // no debe leer ni heredar ninguna sesión de auth guardada en localStorage por el
-// cliente de Login.jsx (comparten el mismo project ref y, por tanto, la misma
+// cliente de auth (comparten el mismo project ref y, por tanto, la misma
 // storageKey por defecto). Sin esto, si el navegador tiene una sesión logueada,
 // el insert se envía como usuario autenticado en vez de "anon" y la policy de
 // RLS (concedida solo a "anon") lo rechaza con 403.
@@ -14,3 +14,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
     persistSession: false,
   },
 })
+
+// Cliente separado para autenticación (Login.jsx): necesita persistir la
+// sesión en localStorage para que el usuario siga logueado tras recargar.
+export const supabaseAuth = createClient(supabaseUrl, supabaseAnonKey)

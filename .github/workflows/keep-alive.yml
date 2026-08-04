@@ -10,9 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ping Supabase Demo
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
         run: |
           curl -s -o /dev/null -w "%{http_code}" \
-            "https://farpikktngdcydpserjl.supabase.co/rest/v1/vehiculos?select=id&limit=1" \
-            -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZhcnBpa2t0bmdkY3lkcHNlcmpsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzMDY2NjUsImV4cCI6MjEwMDg4MjY2NX0.RTFDhdbqDz74GcPlnSE7ZKKKGcQld-u8UOOVcXUii7Y" \
-            -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZhcnBpa2t0bmdkY3lkcHNlcmpsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUzMDY2NjUsImV4cCI6MjEwMDg4MjY2NX0.RTFDhdbqDz74GcPlnSE7ZKKKGcQld-u8UOOVcXUii7Y"
+            "$SUPABASE_URL/rest/v1/vehiculos?select=id&limit=1" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY"
           echo "Ping completado"

@@ -66,7 +66,6 @@ CREATE TABLE IF NOT EXISTS historial_estados (
 );
 
 -- ── VENTAS ───────────────────────────────────────────────────
--- Basado en el SQL documentado en eurocar-motor/gestion/index.html:1382-1407
 -- FK ajustada a ON DELETE RESTRICT: el panel bloquea el borrado de un
 -- vehículo con venta asociada, comportamiento incompatible con SET NULL.
 CREATE TABLE IF NOT EXISTS ventas (
@@ -100,7 +99,6 @@ CREATE TABLE IF NOT EXISTS busquedas_catalogo (
 );
 
 -- ── EVENTOS_CATALOGO ─────────────────────────────────────────
--- SQL tal como está documentado en eurocar-motor/catalogo/index.html:1838-1846
 CREATE TABLE IF NOT EXISTS eventos_catalogo (
   id          UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
   tipo        TEXT        NOT NULL,
