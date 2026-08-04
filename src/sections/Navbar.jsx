@@ -144,7 +144,7 @@ export default function Navbar() {
 
           {/* 1. Logo */}
           <a href="/" className="flex flex-shrink-0 items-center gap-2.5 no-underline">
-            <img src="/assets/logo.png" alt="StockDrive" className="h-8 w-8 rounded-lg" />
+            <img src="/assets/logo.png" alt="StockDrive" width={32} height={32} className="h-8 w-8 rounded-lg" />
             <span className="font-extrabold text-xl tracking-tight text-[#0F172A]">StockDrive</span>
           </a>
 

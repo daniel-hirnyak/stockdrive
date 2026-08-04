@@ -151,6 +151,9 @@ export default function Hero() {
             <img
               src="/assets/screenshot-inicio.png"
               alt="Panel de StockDrive"
+              width={2000}
+              height={1301}
+              fetchPriority="high"
               className="block w-full rounded-xl"
               draggable={false}
             />

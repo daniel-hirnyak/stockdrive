@@ -150,7 +150,7 @@ export default function Login() {
 
       <div className="login-page">
         <div className="login-card">
-          <img src="/assets/logo.png" alt="StockDrive" className="login-logo" />
+          <img src="/assets/logo.png" alt="StockDrive" width={56} height={56} className="login-logo" />
           <h1 className="login-title">StockDrive</h1>
           <p className="login-subtitle">Bienvenido de nuevo</p>
 
