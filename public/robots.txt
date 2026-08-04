@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /login
+Disallow: /demo/
+Disallow: /template/
+
+Sitemap: https://stockdrive.es/sitemap.xml
