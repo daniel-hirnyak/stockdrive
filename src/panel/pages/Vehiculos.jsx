@@ -594,7 +594,7 @@ export default function Vehiculos() {
         </div>
 
         {/* 2. Barra de filtros */}
-        <div className="mb-4 rounded-xl border border-[#E2E8F0] bg-white px-4 py-3 shadow-sm">
+        <div className="mb-4 rounded-xl border border-[#E2E8F0] bg-white px-4 py-2.5 shadow-sm">
           <select
             value={filter}
             onChange={(e) => setFilter(e.target.value)}
