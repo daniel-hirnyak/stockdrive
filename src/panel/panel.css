@@ -1,0 +1,10 @@
+.panel-root {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+}
+
+/* Diagnóstico temporal: confirmar que Inter se aplica sin problema de
+   especificidad/herencia. Quitar tras la prueba. */
+.panel-root h1, .panel-root .test-inter {
+  font-family: 'Inter', sans-serif !important;
+}
