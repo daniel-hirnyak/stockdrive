@@ -235,7 +235,8 @@ textarea{resize:vertical;min-height:76px;line-height:1.5}
 .gallery-img:hover{opacity:.82}
 
 /* ── LIGHTBOX ──────────────────────────────────────────────── */
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:500;display:flex;align-items:center;justify-content:center;padding:20px}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:500;display:flex;align-items:center;justify-content:center;padding:20px;transition:opacity .2s ease}
+.lightbox.lb-hidden{opacity:0}
 .lightbox img{max-width:90vw;max-height:88vh;border-radius:8px;object-fit:contain;display:block}
 .lb-close{position:absolute;top:14px;right:18px;color:#fff;font-size:26px;cursor:pointer;background:none;border:none;line-height:1;padding:6px;opacity:.8;transition:opacity .15s}
 .lb-close:hover{opacity:1}
@@ -314,6 +315,21 @@ textarea{resize:vertical;min-height:76px;line-height:1.5}
 .modal-head{padding:18px 22px;border-bottom:1px solid var(--border);font-size:15px;font-weight:600}
 .modal-body{padding:18px 22px;font-size:13px;color:var(--text-2);line-height:1.6}
 .modal-foot{padding:14px 22px;display:flex;justify-content:flex-end;gap:8px;border-top:1px solid var(--border)}
+
+/* ── MODAL: animación de apertura/cierre ─────────────────────
+   .overlay ya tiene display:flex permanente en su regla base;
+   .hidden{display:none!important} (global) lo oculta por completo.
+   Aquí sobreescribimos display a flex!important SOLO cuando .overlay
+   tiene .hidden, para que el elemento siga en el flujo/visible en el
+   DOM y la transición de opacity/transform pueda animarse — en vez
+   de saltar de golpe con display:none. pointer-events:none evita que
+   sea clicable mientras está oculto. */
+.overlay{transition:opacity .2s ease}
+.overlay.hidden{display:flex!important;opacity:0;pointer-events:none}
+.overlay:not(.hidden){opacity:1}
+.modal{transition:transform .2s ease,opacity .2s ease}
+.overlay.hidden .modal{transform:scale(.95) translateY(8px);opacity:0}
+.overlay:not(.hidden) .modal{transform:scale(1) translateY(0);opacity:1}
 
 /* ── TOAST ─────────────────────────────────────────────────── */
 .toasts{position:fixed;bottom:22px;right:22px;z-index:300;display:flex;flex-direction:column;gap:7px;pointer-events:none}
@@ -1049,11 +1065,13 @@ textarea{resize:vertical;min-height:76px;line-height:1.5}
   #appBody, .main { overflow-x: hidden; max-width: 100vw; box-sizing: border-box; }
 }
 /* ── TAB FADE ANIMATION ──────────────────────────────────────── */
-@media(max-width:1100px){
-  #homeContent{transition:opacity .18s ease,transform .18s ease}
-  #homeContent.tab-leaving{opacity:0;transform:translateX(-12px)}
-  #homeContent.tab-entering{opacity:0;transform:translateX(12px)}
-}
+#homeContent{transition:opacity .08s ease}
+.tab-leaving{opacity:0}
+.tab-entering{opacity:0}
+/* ── VIEW FADE ANIMATION (detail/form, contenedor #app) ──────── */
+#app{transition:opacity .18s ease,transform .18s ease}
+#app.view-leaving{opacity:0;transform:translateY(-8px)}
+#app.view-entering{opacity:0;transform:translateY(8px)}
 /* ── FLOATING BACK BUTTON (detail, mobile only) ─────────────── */
 #floatingBackBtn{position:fixed;top:64px;left:16px;z-index:120;opacity:0;pointer-events:none;transition:opacity .2s ease}
 #floatingBackBtn.visible{opacity:1;pointer-events:auto}
@@ -2665,7 +2683,7 @@ function showLightbox() {
   const existing=document.getElementById('lightbox');
   if(existing){document.removeEventListener('keydown',existing._kh);existing.remove();}
   const n=v.photos.length, lb=document.createElement('div');
-  lb.id='lightbox'; lb.className='lightbox';
+  lb.id='lightbox'; lb.className='lightbox lb-hidden';
   lb.innerHTML=`<button class="lb-close" onclick="closeLightbox()">&#x2715;</button>
     ${n>1?`<button class="lb-nav lb-prev" onclick="navLb(-1)">&#x2039;</button>`:''}
     <img src="${v.photos[lbIdx]}" alt="Foto ${lbIdx+1}">
@@ -2675,9 +2693,16 @@ function showLightbox() {
   lb.addEventListener('click',e=>{if(e.target===lb)closeLightbox();});
   document.addEventListener('keydown',lb._kh);
   document.body.appendChild(lb);
+  requestAnimationFrame(()=>lb.classList.remove('lb-hidden'));
 }
 function navLb(dir) { const v=vehiclesCache.find(x=>x.id===lbVid);if(!v?.photos)return;lbIdx=(lbIdx+dir+v.photos.length)%v.photos.length;showLightbox(); }
-function closeLightbox() { const lb=document.getElementById('lightbox');if(lb){document.removeEventListener('keydown',lb._kh);lb.remove();} }
+function closeLightbox() {
+  const lb=document.getElementById('lightbox');
+  if(!lb) return;
+  document.removeEventListener('keydown',lb._kh);
+  lb.classList.add('lb-hidden');
+  setTimeout(()=>lb.remove(),200);
+}
 
 // ─── DETAIL ──────────────────────────────────────────────────
 function renderExpensesGrouped(expenses, totalExp) {
@@ -2880,10 +2905,60 @@ function goHome() {
   render(); syncSidebarActive('metricas'); scrollTo(0,0);
 }
 function showStock() { goHome(); }
+
+// Transición fade+slide para #app (detail/form) — análoga a
+// renderWithTransition pero SIN envolver render() en sí, que es
+// compartido por decenas de otros call-sites (setFilter, saveVehicle,
+// deleteVehicle, changeStatus...) que dependen de que se ejecute de
+// forma síncrona. Aquí solo se difiere EL MOMENTO en que se llama a
+// render(); una vez llamada, render() sigue haciendo todo su trabajo
+// de una sola vez, tal como antes (incluido el IntersectionObserver
+// del botón flotante en la rama detail) — por eso no hace falta un
+// parámetro afterRender como en renderWithTransition.
+function navigateWithTransition(renderFn) {
+  const app = document.getElementById('app');
+  if (!app) { renderFn(); return; }
+  app.classList.add('view-leaving');
+  setTimeout(() => {
+    renderFn();
+    app.classList.remove('view-leaving');
+    app.classList.add('view-entering');
+    requestAnimationFrame(() => { app.classList.remove('view-entering'); });
+  }, 90);
+}
 function showDash()  {
+  // Solo animamos si venimos de detail/form (donde render() SÍ reemplaza
+  // #app entero). Si ya estábamos en home, render() solo actualiza
+  // #homeContent por dentro — aplicar la transición a #app ahí causaría
+  // un fade innecesario de toda la vista (incluida la barra de tabs, que
+  // no cambia) sin motivo.
+  const cameFromDetailOrForm = S.view === 'detail' || S.view === 'form';
   S.view='home'; S.homeTab='stock'; S.editId=null; S.detailId=null;
   fData={}; fExp=[]; fPhotos=[]; fStorageToDelete=[];
-  render(); syncSidebarActive('stock'); scrollTo(0,0);
+  if (cameFromDetailOrForm) { navigateWithTransition(render); } else { render(); }
+  syncSidebarActive('stock'); scrollTo(0,0);
+}
+// Transición fade genérica (sin desplazamiento) al reemplazar el
+// contenido de un contenedor. Reutiliza las clases .tab-leaving/
+// .tab-entering ya definidas en CSS (antes solo se aplicaban en el
+// swipe táctil móvil).
+// afterRender (opcional) corre DESPUÉS de asignar el innerHTML, para
+// código que depende de que el nuevo DOM ya exista (p.ej. initDashCharts
+// buscando el <canvas> recién insertado) — si se ejecutara dentro de
+// newHtmlFn, correría antes de que el HTML devuelto se haya insertado.
+// 40ms = mitad de la duración definida en CSS (.08s = 80ms).
+function renderWithTransition(container, newHtmlFn, afterRender) {
+  if (!container) { newHtmlFn(); if (afterRender) afterRender(); return; }
+  container.classList.add('tab-leaving');
+  setTimeout(() => {
+    container.innerHTML = newHtmlFn();
+    if (afterRender) afterRender();
+    container.classList.remove('tab-leaving');
+    container.classList.add('tab-entering');
+    requestAnimationFrame(() => {
+      container.classList.remove('tab-entering');
+    });
+  }, 40);
 }
 function setHomeTab(tab) {
   S.homeTab=tab; S.view='home';
@@ -2893,16 +2968,17 @@ function setHomeTab(tab) {
   if (c) {
     document.querySelectorAll('.dtab[data-tab]').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
     requestAnimationFrame(() => { const a=document.querySelector('.dtab.active'); if(a) a.scrollIntoView({inline:'center',block:'nearest'}); });
-    c.innerHTML = renderHomeContent();
-    if (tab==='metricas') initDashCharts();
-    if (tab==='web') loadWebAnalytics();
+    renderWithTransition(c, renderHomeContent, () => {
+      if (tab==='metricas') initDashCharts();
+      if (tab==='web') loadWebAnalytics();
+    });
   } else {
     render();
   }
   syncSidebarActive(tab);
   scrollTo(0,0);
 }
-function showAddForm() { S.view='form';S.editId=null;initForm(null);render();scrollTo(0,0); }
+function showAddForm() { S.view='form';S.editId=null;initForm(null);navigateWithTransition(render);scrollTo(0,0); }
 
 // ─── HOME DASHBOARD ──────────────────────────────────────────
 function renderHomeContent() {
@@ -4531,9 +4607,9 @@ function goAlertGroup(key) {
 
 function showEdit(id)  {
   const v=vehiclesCache.find(x=>x.id===id); if(!v) return;
-  S.view='form';S.editId=id;initForm(v);render();scrollTo(0,0);
+  S.view='form';S.editId=id;initForm(v);navigateWithTransition(render);scrollTo(0,0);
 }
-function showDetail(id) { S.view='detail';S.detailId=id;render();scrollTo(0,0); }
+function showDetail(id) { S.view='detail';S.detailId=id;navigateWithTransition(render);scrollTo(0,0); }
 function setFilter(f)   { S.alertVehicleIds=null; S.filter=f;render(); }
 function setVehicleView(v) { localStorage.setItem('stockdrive_vehicle_view', v); render(); }
 function setQ(q) {
@@ -5401,14 +5477,16 @@ if ('serviceWorker' in navigator) {
     const c = document.getElementById('homeContent');
     if (!c) { setHomeTab(TABS[nextIdx]); return; }
 
+    // setHomeTab() ya aplica su propia transición fade+slide vía
+    // renderWithTransition — antes este handler duplicaba la lógica con
+    // sus propias clases tab-leaving/tab-entering, lo que ahora chocaría
+    // con la de setHomeTab (doble aplicación de las mismas clases sobre
+    // el mismo contenedor, causando un parpadeo). Se deja que setHomeTab
+    // gestione la animación; aquí solo se mantiene el flag _animating
+    // para no procesar swipes solapados mientras dura la transición.
     _animating = true;
-    c.classList.add(deltaX > 0 ? 'tab-leaving' : 'tab-entering');
-
-    setTimeout(() => {
-      setHomeTab(TABS[nextIdx]);
-      c.classList.remove('tab-leaving', 'tab-entering');
-      _animating = false;
-    }, 180);
+    setHomeTab(TABS[nextIdx]);
+    setTimeout(() => { _animating = false; }, 120);
   }, { passive: true });
 })();
 </script>
