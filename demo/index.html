@@ -1100,7 +1100,7 @@ textarea{resize:vertical;min-height:76px;line-height:1.5}
         <div style="position:relative">
           <input type="password" id="loginPassword" placeholder="••••••••" required autocomplete="current-password" style="padding-right:36px">
           <button type="button" onclick="togglePassVis('loginPassword',this)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--text-2);display:flex;align-items:center;padding:0;transition:color .15s" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text-2)'" aria-label="Mostrar contraseña">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
           </button>
         </div>
       </div>
@@ -1139,47 +1139,47 @@ textarea{resize:vertical;min-height:76px;line-height:1.5}
     <div id="sidebarNav">
       <div class="snav-label">Gestión</div>
       <button class="sidebar-nav-item active" data-tab="metricas" onclick="setHomeTab('metricas');syncSidebarActive('metricas')">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
         <span>Inicio</span>
       </button>
       <button class="sidebar-nav-item" data-tab="stock" onclick="setHomeTab('stock');syncSidebarActive('stock')">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
         <span>Vehículos</span>
       </button>
       <button class="sidebar-nav-item" data-tab="ventas" onclick="setHomeTab('ventas');syncSidebarActive('ventas')">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
         <span>Ventas</span>
       </button>
 
       <div class="snav-label">Presencia online</div>
       <button class="sidebar-nav-item" data-tab="web" onclick="setHomeTab('web');syncSidebarActive('web')">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21v-6"/><path d="M12 21V3"/><path d="M19 21V9"/></svg>
         <span>Rendimiento web</span>
       </button>
       <button class="sidebar-nav-item" onclick="window.open(CLIENT_CONFIG.catalogUrl,'_blank')">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
         <span>Catálogo online</span>
       </button>
 
       <div class="snav-label">Acciones rápidas</div>
       <div style="padding:0 6px;display:flex;flex-direction:column;gap:6px;padding-bottom:8px">
         <button class="sidebar-action-btn" onclick="showAddForm()">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
           Añadir vehículo
         </button>
         <button class="sidebar-action-btn" onclick="openSoldModal(null)">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.35 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v5.35"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M14 19h6"/><path d="M17 16v6"/></svg>
           Registrar venta
         </button>
       </div>
     </div>
     <div id="sidebarFooter">
       <button class="sidebar-nav-item" data-action="settings" onclick="openSettingsModal()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></svg>
         <span>Ajustes</span>
       </button>
       <button class="sidebar-nav-item" data-action="logout" id="sidebarLogout" onclick="handleLogout()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg>
         <span>Cerrar sesión</span>
       </button>
     </div>
@@ -1197,11 +1197,11 @@ textarea{resize:vertical;min-height:76px;line-height:1.5}
       <div class="nav-actions">
         <input type="file" id="importFileInput" accept=".json" style="display:none" onchange="handleImport(this)">
         <button class="btn btn-secondary btn-sm" onclick="handleLogout()">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/></svg>
           Salir
         </button>
         <button class="btn btn-primary" onclick="showAddForm()">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
           Añadir vehículo
         </button>
       </div>
@@ -1213,19 +1213,19 @@ textarea{resize:vertical;min-height:76px;line-height:1.5}
   <!-- ── MOBILE BOTTOM NAV ─────────────────────────────────────── -->
   <nav id="bottomNav">
     <button class="bnav-item active" data-tab="metricas" onclick="setHomeTab('metricas');syncSidebarActive('metricas')">
-      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
       <span class="bnav-label">Inicio</span>
     </button>
     <button class="bnav-item" data-tab="stock" onclick="setHomeTab('stock');syncSidebarActive('stock')">
-      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
       <span class="bnav-label">Vehículos</span>
     </button>
     <button class="bnav-item" data-tab="ventas" onclick="setHomeTab('ventas');syncSidebarActive('ventas')">
-      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
       <span class="bnav-label">Ventas</span>
     </button>
     <button class="bnav-item" data-tab="web" onclick="setHomeTab('web');syncSidebarActive('web')">
-      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21v-6"/><path d="M12 21V3"/><path d="M19 21V9"/></svg>
       <span class="bnav-label">Web</span>
     </button>
   </nav>
@@ -1234,11 +1234,11 @@ textarea{resize:vertical;min-height:76px;line-height:1.5}
   <!-- ── MOBILE HEADER ──────────────────────────────────────────── -->
   <header id="mobileHeader">
     <button class="mhdr-btn" onclick="toggleMobileHamburgerMenu()" aria-label="Menú">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
     </button>
     <span class="mhdr-title">StockDrive</span>
     <button class="mhdr-btn" onclick="toggleMobileActionsMenu()" aria-label="Acciones">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
     </button>
   </header>
 
@@ -1257,7 +1257,7 @@ textarea{resize:vertical;min-height:76px;line-height:1.5}
     <button class="maction-item" onclick="openSoldModal(null);closeMobileActionsMenu()">Registrar venta</button>
     <button class="maction-item" style="justify-content:space-between" onclick="window.open(CLIENT_CONFIG.catalogUrl,'_blank');closeMobileActionsMenu()">
       Ver catálogo
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
     </button>
   </div>
 
@@ -1290,7 +1290,7 @@ textarea{resize:vertical;min-height:76px;line-height:1.5}
     <div class="modal-head" style="display:flex;align-items:center;justify-content:space-between">
       <span>Ajustes</span>
       <button onclick="closeSettingsModal()" style="border:none;background:none;cursor:pointer;padding:4px;color:var(--text-2);display:flex;align-items:center;border-radius:6px;transition:background .15s" onmouseover="this.style.background='var(--bg)'" onmouseout="this.style.background='none'">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
       </button>
     </div>
     <div class="settings-modal-body">
@@ -1306,12 +1306,12 @@ textarea{resize:vertical;min-height:76px;line-height:1.5}
           <div class="settings-logo-wrap" style="margin-top:8px">
             <div id="settingsLogoPreviewWrap">
               <div class="settings-logo-placeholder" id="settingsLogoPlaceholder">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z"/><circle cx="12" cy="13" r="3"/></svg>
               </div>
             </div>
             <div>
               <label class="btn btn-secondary btn-sm" for="settingsLogoInput" style="cursor:pointer;display:inline-flex;align-items:center;gap:6px">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m17 8-5-5-5 5"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/></svg>
                 Subir logo
               </label>
               <input type="file" id="settingsLogoInput" accept="image/*" style="display:none" onchange="handleSettingsLogoUpload(this)">
@@ -1350,14 +1350,14 @@ textarea{resize:vertical;min-height:76px;line-height:1.5}
             <div style="position:relative">
               <input type="password" id="sNewPass" placeholder="Mínimo 8 caracteres" minlength="8" style="padding-right:36px">
               <button type="button" onclick="togglePassVis('sNewPass',this)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--text-2);display:flex;align-items:center;padding:0;transition:color .15s" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text-2)'" aria-label="Mostrar contraseña">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
               </button>
             </div></div>
           <div class="fg" style="margin-top:12px"><label>Confirmar nueva contraseña</label>
             <div style="position:relative">
               <input type="password" id="sConfPass" placeholder="Repite la contraseña" style="padding-right:36px">
               <button type="button" onclick="togglePassVis('sConfPass',this)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--text-2);display:flex;align-items:center;padding:0;transition:color .15s" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text-2)'" aria-label="Mostrar contraseña">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
               </button>
             </div></div>
           <button class="btn btn-primary" style="width:100%;margin-top:16px" onclick="changePassword()">Cambiar contraseña</button>
@@ -1443,27 +1443,38 @@ let _saleStep=1, _saleVehicleId=null, _saleData={};
 let dragSrcIdx = null;
 let _webEvCache = null;
 let _webRankedCache = null;
-const ICphone = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:1px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 9.71 19.79 19.79 0 0 1 1.62 1.08 2 2 0 0 1 3.62 0h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 7.91a16 16 0 0 0 6.18 6.18l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`;
-const ICwa = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:1px"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`;
+const ICphone = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:1px"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>`;
+const ICwa = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:1px"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/></svg>`;
 
 const getVehicles = () => vehiclesCache;
 
 // ─── SVG ICONS ────────────────────────────────────────────────
+// Iconos Lucide (paquete "lucide", extraídos de node_modules/lucide/dist/esm/icons/).
+// Mismos nombres de propiedad que antes para no romper ninguna referencia
+// existente en el código — solo cambia el trazado interno de cada SVG.
 const IC = {
-  carGray:   `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#CBD5E1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3v-5l2.5-5h13L21 12v5h-2"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/><line x1="3" y1="12" x2="21" y2="12"/></svg>`,
-  carGrayLg: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3v-5l2.5-5h13L21 12v5h-2"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/><line x1="3" y1="12" x2="21" y2="12"/></svg>`,
-  searchLg:  `<svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
-  edit:      `<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`,
-  trash:     `<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>`,
-  plus:      `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>`,
-  save:      `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>`,
-  check:     `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 13 4 10"/></svg>`,
-  arrowLeft: `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>`,
-  grip:      `<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="2" stroke-linecap="round"><line x1="9" y1="5" x2="9" y2="19"/><line x1="15" y1="5" x2="15" y2="19"/></svg>`,
-  camera:    `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>`,
-  eye:       `<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`,
-  starOn:    `<svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
-  starOff:   `<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
+  carGray:   `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#CBD5E1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>`,
+  carGrayLg: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>`,
+  searchLg:  `<svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="#CBD5E1" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>`,
+  edit:      `<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/></svg>`,
+  trash:     `<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>`,
+  plus:      `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>`,
+  save:      `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"/><path d="M7 3v4a1 1 0 0 0 1 1h7"/></svg>`,
+  check:     `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>`,
+  arrowLeft: `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>`,
+  grip:      `<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="12" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="19" r="1"/></svg>`,
+  camera:    `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z"/><circle cx="12" cy="13" r="3"/></svg>`,
+  eye:       `<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>`,
+  starOn:    `<svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>`,
+  starOff:   `<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>`,
+  eye11:     `<svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>`,
+  eye16:     `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>`,
+  lock11:    `<svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`,
+  car16:     `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>`,
+  infoTip:   `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-2);flex-shrink:0;opacity:.6"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>`,
+  chart18:   `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21v-6"/><path d="M12 21V3"/><path d="M19 21V9"/></svg>`,
+  truck18:   `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>`,
+  camera20:  `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z"/><circle cx="12" cy="13" r="3"/></svg>`,
 };
 
 // ─── CONSTANTS ────────────────────────────────────────────────
@@ -1594,7 +1605,7 @@ function _renderSettingsLogo(url) {
   if (url) {
     wrap.innerHTML = `<img src="${url}" class="settings-logo-preview" alt="Logo">`;
   } else {
-    wrap.innerHTML = `<div class="settings-logo-placeholder" id="settingsLogoPlaceholder"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>`;
+    wrap.innerHTML = `<div class="settings-logo-placeholder" id="settingsLogoPlaceholder">${IC.camera20}</div>`;
   }
 }
 async function handleSettingsLogoUpload(input) {
@@ -1645,8 +1656,8 @@ function togglePassVis(inputId, btn) {
   const show = inp.type === 'password';
   inp.type = show ? 'text' : 'password';
   btn.innerHTML = show
-    ? `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>`
-    : `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`;
+    ? `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"/><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"/><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"/><path d="m2 2 20 20"/></svg>`
+    : `${IC.eye16}`;
 }
 async function changePassword() {
   const np = document.getElementById('sNewPass').value;
@@ -1867,7 +1878,7 @@ function renderDash() {
   const featuredCount = vehiclesCache.filter(x => x.destacado).length;
   const vehicleView = localStorage.getItem('stockdrive_vehicle_view') || 'gallery';
 
-  const pageHeader = `<div class="page-header-vehicles" style="margin-bottom:20px"><div><h2 style="font-size:22px;font-weight:700;color:var(--text);margin:0 0 4px">Vehículos</h2><p style="font-size:13px;color:var(--text-2);margin:0">Gestiona tu stock, precios y publicación.</p></div><button class="btn btn-primary" onclick="showAddForm()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Añadir vehículo</button></div>`;
+  const pageHeader = `<div class="page-header-vehicles" style="margin-bottom:20px"><div><h2 style="font-size:22px;font-weight:700;color:var(--text);margin:0 0 4px">Vehículos</h2><p style="font-size:13px;color:var(--text-2);margin:0">Gestiona tu stock, precios y publicación.</p></div><button class="btn btn-primary" onclick="showAddForm()">${IC.plus} Añadir vehículo</button></div>`;
 
   const filterBar = `
 <div class="filter-bar">
@@ -1887,8 +1898,8 @@ function renderDash() {
   <div class="search-toggle-row">
     <input class="search-inp" type="text" placeholder="Marca, modelo, matrícula..." value="${esc(S.q)}" id="searchInp" oninput="setQ(this.value)">
     <div class="view-toggle">
-      <button onclick="setVehicleView('gallery')" title="Vista galería" class="vtog-btn${vehicleView==='gallery'?' active':''}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></button>
-      <button onclick="setVehicleView('list')" title="Vista lista" class="vtog-btn${vehicleView==='list'?' active':''}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      <button onclick="setVehicleView('gallery')" title="Vista galería" class="vtog-btn${vehicleView==='gallery'?' active':''}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg></button>
+      <button onclick="setVehicleView('list')" title="Vista lista" class="vtog-btn${vehicleView==='list'?' active':''}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg></button>
     </div>
   </div>
 </div>`;
@@ -1951,7 +1962,7 @@ function renderDash() {
 }
 
 function renderVehicleGallery(vehicles) {
-  const carGallery = `<svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3v-5l2.5-5h13L21 12v5h-2"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/><line x1="3" y1="12" x2="21" y2="12"/></svg>`;
+  const carGallery = `<svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>`;
   const cards = vehicles.map(v => {
     const c = calc(v);
     const photoEl = v.photos && v.photos[0]
@@ -2106,7 +2117,7 @@ function renderForm() {
   <div class="fsec">
     <div class="fsec-title-row">
       <div class="fsec-title">Información básica</div>
-      <span class="fsec-badge pub"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Visible en la web</span>
+      <span class="fsec-badge pub">${IC.eye11} Visible en la web</span>
     </div>
     <div class="fgrid">
       <div class="fg"><label>Marca *</label>
@@ -2142,7 +2153,7 @@ function renderForm() {
   <div class="fsec">
     <div class="fsec-title-row">
       <div class="fsec-title">Características técnicas</div>
-      <span class="fsec-badge pub"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Visible en la web</span>
+      <span class="fsec-badge pub">${IC.eye11} Visible en la web</span>
     </div>
     <div class="fgrid">
       <div class="fg"><label>Combustible</label>
@@ -2190,7 +2201,7 @@ function renderForm() {
   <div class="fsec">
     <div class="fsec-title-row">
       <div class="fsec-title">Fotos <span class="opt" style="font-weight:400;font-size:12px">· arrastra para reordenar</span></div>
-      <span class="fsec-badge pub"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Visible en la web</span>
+      <span class="fsec-badge pub">${IC.eye11} Visible en la web</span>
     </div>
     <div id="photoGrid">${renderPhotoGrid()}</div>
     <label class="photo-upload-area" for="photoInput">
@@ -2206,7 +2217,7 @@ function renderForm() {
   <div class="fsec">
     <div class="fsec-title-row">
       <div class="fsec-title">Precio de venta</div>
-      <span class="fsec-badge pub"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Visible en la web</span>
+      <span class="fsec-badge pub">${IC.eye11} Visible en la web</span>
     </div>
     <div class="fg">
       <label>PVP objetivo (€)</label>
@@ -2230,7 +2241,7 @@ function renderForm() {
   <div class="fsec">
     <div class="fsec-title-row">
       <div class="fsec-title">Descripción pública</div>
-      <span class="fsec-badge pub"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Visible en la web</span>
+      <span class="fsec-badge pub">${IC.eye11} Visible en la web</span>
     </div>
     <div class="fg">
       <textarea name="descripcion" rows="4" placeholder="Estado general, equipamiento destacado, extras, historial de revisiones… (visible para los clientes en el catálogo)">${esc(fData.descripcion||'')}</textarea>
@@ -2240,7 +2251,7 @@ function renderForm() {
   <div class="fsec">
     <div class="fsec-title-row">
       <div class="fsec-title">Datos internos</div>
-      <span class="fsec-badge prv"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Solo tú</span>
+      <span class="fsec-badge prv">${IC.lock11} Solo tú</span>
     </div>
     <div class="fgrid">
       <div class="fg"><label>Matrícula</label>
@@ -2255,7 +2266,7 @@ function renderForm() {
   <div class="fsec">
     <div class="fsec-title-row">
       <div class="fsec-title">Origen del vehículo</div>
-      <span class="fsec-badge prv"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Solo tú</span>
+      <span class="fsec-badge prv">${IC.lock11} Solo tú</span>
     </div>
     <div class="fgrid-2">
       <div class="fg"><label>Proveedor <span class="opt">(opcional)</span></label>
@@ -2271,7 +2282,7 @@ function renderForm() {
   <div class="fsec">
     <div class="fsec-title-row">
       <div class="fsec-title">Compra y venta</div>
-      <span class="fsec-badge prv"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Solo tú</span>
+      <span class="fsec-badge prv">${IC.lock11} Solo tú</span>
     </div>
     <div class="fg">
       <label>Precio de compra (€) *</label>
@@ -2326,7 +2337,7 @@ function renderForm() {
   <div class="fsec">
     <div class="fsec-title-row">
       <div class="fsec-title">Gastos asociados</div>
-      <span class="fsec-badge prv"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Solo tú</span>
+      <span class="fsec-badge prv">${IC.lock11} Solo tú</span>
     </div>
     <div class="exp-header">
       <span>Importe €</span><span>Concepto</span><span>Categoría</span><span></span>
@@ -2342,7 +2353,7 @@ function renderForm() {
   <div class="fsec">
     <div class="fsec-title-row">
       <div class="fsec-title">Resumen económico</div>
-      <span class="fsec-badge prv"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Solo tú</span>
+      <span class="fsec-badge prv">${IC.lock11} Solo tú</span>
     </div>
     <div class="price-box" id="priceBox">${renderPriceBox()}</div>
   </div>
@@ -2350,7 +2361,7 @@ function renderForm() {
   <div class="fsec">
     <div class="fsec-title-row">
       <div class="fsec-title">Notas internas</div>
-      <span class="fsec-badge prv"><svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Solo tú</span>
+      <span class="fsec-badge prv">${IC.lock11} Solo tú</span>
     </div>
     <div class="fg">
       <textarea name="notes" placeholder="Historial de revisiones, detalles del comprador, pendientes…">${esc(fData.notes||'')}</textarea>
@@ -2389,7 +2400,7 @@ function renderExpLines() {
         ${EXP_CATS.map(c=>`<option value="${c}" ${e.categoria===c?'selected':''}>${c}</option>`).join('')}
       </select>
       <button type="button" class="btn-icon-del exp-del-btn" onclick="delExp('${e.id}')" ${fExp.length===1?'disabled':''} title="Eliminar gasto">
-        <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
       </button>
     </div>`).join('');
 }
@@ -2559,7 +2570,7 @@ function renderPhotoGrid() {
          ontouchcancel="photoTouchEnd(event)">
       <img src="${src}" alt="Foto ${i+1}">
       <button type="button" class="photo-remove" onclick="removePhoto(${i})" title="Eliminar">
-        <svg viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <svg viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
       </button>
       <div class="photo-drag-hint">${IC.grip}</div>
       ${i===0?'<span class="photo-main-badge">Principal</span>':''}
@@ -3073,23 +3084,23 @@ function renderHomeContent() {
   // Alert row with Feather SVG by level
   const alertRow=(key,label,count,level)=>{
     const icoSvg={
-      crit:`<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`,
-      warn:`<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`,
-      info:`<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>`,
+      crit:`<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16h.01"/><path d="M12 8v4"/><path d="M15.312 2a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586l-4.688-4.688A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2z"/></svg>`,
+      warn:`<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>`,
+      info:`<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>`,
     };
     const lvlLabel={crit:'CRÍTICO',warn:'AVISO',info:'INFORMACIÓN'};
     const lvlColor={crit:'#dc2626',warn:'#d97706',info:'#2563eb'};
-    if(!count)return`<div class="db-empty-ok"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>${label}: sin incidencias</div>`;
-    return`<div class="db-alert" data-level="${level}" onclick="goAlertGroup('${key}')" style="cursor:pointer"><div style="flex-shrink:0;display:flex;align-items:flex-start;padding-top:1px">${icoSvg[level]||''}</div><div style="flex:1;min-width:0"><div style="font-size:10px;font-weight:700;color:${lvlColor[level]||'var(--text-2)'};text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px">${lvlLabel[level]||''}</div><div style="font-size:13px;font-weight:600;color:var(--text)">${label}</div><div style="font-size:12px;color:var(--text-2);margin-top:2px">${count} vehículo${count!==1?'s':''}</div></div><button class="btn btn-secondary btn-sm db-alert-action" onclick="event.stopPropagation();goAlertGroup('${key}')">Ver ›</button><span class="db-alert-chevron" style="display:none"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span></div>`;
+    if(!count)return`<div class="db-empty-ok">${IC.check}${label}: sin incidencias</div>`;
+    return`<div class="db-alert" data-level="${level}" onclick="goAlertGroup('${key}')" style="cursor:pointer"><div style="flex-shrink:0;display:flex;align-items:flex-start;padding-top:1px">${icoSvg[level]||''}</div><div style="flex:1;min-width:0"><div style="font-size:10px;font-weight:700;color:${lvlColor[level]||'var(--text-2)'};text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px">${lvlLabel[level]||''}</div><div style="font-size:13px;font-weight:600;color:var(--text)">${label}</div><div style="font-size:12px;color:var(--text-2);margin-top:2px">${count} vehículo${count!==1?'s':''}</div></div><button class="btn btn-secondary btn-sm db-alert-action" onclick="event.stopPropagation();goAlertGroup('${key}')">Ver ›</button><span class="db-alert-chevron" style="display:none"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span></div>`;
   };
 
   // Feather icons for KPI cards (16px, color var(--text-2))
-  const icoTruck=`<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>`;
-  const icoCard=`<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>`;
-  const icoTag=`<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>`;
-  const icoTrend=`<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>`;
-  const icoClock=`<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`;
-  const icoWarnSm=`<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`;
+  const icoTruck=`<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>`;
+  const icoCard=`<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>`;
+  const icoTag=`<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="#16255C"/></svg>`;
+  const icoTrend=`<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg>`;
+  const icoClock=`<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>`;
+  const icoWarnSm=`<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>`;
 
   const pctBadge=(val,den)=>{
     if(!den)return'';
@@ -3110,16 +3121,16 @@ function renderHomeContent() {
     </div>
     <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;flex-wrap:wrap">
       <div style="position:relative;display:inline-flex;align-items:center">
-        <span style="position:absolute;left:9px;color:var(--text-2);pointer-events:none;display:flex;align-items:center"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+        <span style="position:absolute;left:9px;color:var(--text-2);pointer-events:none;display:flex;align-items:center"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg></span>
         <select id="dashPeriodSelect" onchange="changeDashPeriod(this.value)" style="-webkit-appearance:none;appearance:none;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:7px 28px 7px 30px;font-size:12px;font-weight:500;color:var(--text);cursor:pointer;font-family:inherit;height:34px">
           <option value="mes"${(S.dashPeriod||'mes')==='mes'?' selected':''}>Este mes</option>
           <option value="mes_anterior"${S.dashPeriod==='mes_anterior'?' selected':''}>Mes anterior</option>
           <option value="90dias"${S.dashPeriod==='90dias'?' selected':''}>Últimos 90 días</option>
           <option value="año"${S.dashPeriod==='año'?' selected':''}>Este año</option>
         </select>
-        <span style="position:absolute;right:8px;color:var(--text-2);pointer-events:none;display:flex;align-items:center"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+        <span style="position:absolute;right:8px;color:var(--text-2);pointer-events:none;display:flex;align-items:center"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
       </div>
-      <button class="db-refresh-btn" title="Actualizar datos" onclick="loadData().then(()=>{const c=document.getElementById('homeContent');if(c){c.innerHTML=renderHomeContent();initDashCharts();}})"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></button>
+      <button class="db-refresh-btn" title="Actualizar datos" onclick="loadData().then(()=>{const c=document.getElementById('homeContent');if(c){c.innerHTML=renderHomeContent();initDashCharts();}})"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg></button>
     </div>
   </div>
 
@@ -3228,7 +3239,7 @@ function renderHomeContent() {
         <div style="display:flex;flex-direction:column;gap:9px">
           ${rDefs.map((r,i)=>`<div><div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:3px"><span style="color:var(--text-2)">${r.l}</span><strong style="color:var(--text)">${rCounts[i]}</strong></div><div style="height:7px;background:#F1F5F9;border-radius:4px;overflow:hidden"><div class="db-bar-fill" style="width:${rCounts[i]>0?((rCounts[i]/maxR)*100).toFixed(1)+'%':'0%'}"></div></div></div>`).join('')}
         </div>
-        ${sinPvpCount>0?`<div class="db-alert-warn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12" y2="17"/></svg>${sinPvpCount} sin PVP, no incluido${sinPvpCount!==1?'s':''} en la gráfica</div>`:''}
+        ${sinPvpCount>0?`<div class="db-alert-warn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>${sinPvpCount} sin PVP, no incluido${sinPvpCount!==1?'s':''} en la gráfica</div>`:''}
       </div>
     </div>
     <div class="db-kpi" style="margin-top:16px">
@@ -3258,7 +3269,7 @@ function renderHomeContent() {
 }
 
 // ─── VENTAS & FACTURACIÓN ─────────────────────────────────────
-const IC_DL = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`;
+const IC_DL = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>`;
 
 function renderVentas() {
   if (S.ventasDetail) return renderVentaDetail(S.ventasDetail);
@@ -3292,10 +3303,11 @@ function renderVentas() {
   const periodPills = [['mes','Este mes'],['mes_anterior','Mes anterior'],['3m','3 meses'],['año','Este año']]
     .map(([k,l])=>`<button onclick="setVentasPeriod('${k}')" style="padding:6px 14px;font-size:12px;font-weight:${p===k?'600':'500'};border-radius:20px;border:1px solid ${p===k?'#16255C':'var(--border)'};background:${p===k?'#16255C':'var(--white)'};color:${p===k?'#fff':'var(--text-2)'};cursor:pointer;font-family:inherit;transition:all .15s">${l}</button>`).join('');
 
-  const IC_TRUCK = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>`;
-  const IC_COIN  = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`;
-  const IC_TREND = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>`;
-  const IC_FILE2 = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`;
+  const IC_TRUCK = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>`;
+  const IC_COIN  = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`;
+  const IC_TREND_UP = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg>`;
+  const IC_TREND_DOWN = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 17h6v-6"/><path d="m22 17-8.5-8.5-5 5L2 7"/></svg>`;
+  const IC_FILE2 = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/></svg>`;
 
   const kpiCard = (label, val, sub, color, icon) =>
     `<div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:20px">
@@ -3310,7 +3322,7 @@ function renderVentas() {
   const emptyState = `
 <div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:64px 20px;text-align:center">
   <div style="width:56px;height:56px;border-radius:12px;background:#F1F5F9;display:flex;align-items:center;justify-content:center;margin:0 auto 20px">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
   </div>
   <div style="font-size:1rem;font-weight:600;color:var(--text);margin-bottom:8px">Sin ventas en este período</div>
   <div style="font-size:0.82rem;color:var(--text-2);margin-bottom:20px">Las ventas registradas aparecerán aquí.</div>
@@ -3339,7 +3351,7 @@ function renderVentas() {
       <p style="font-size:13px;color:var(--text-2);margin:0">Historial de operaciones y análisis financiero</p>
     </div>
     <div class="ventas-header-btns" style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-      <button class="btn btn-secondary ventas-csv-btn" onclick="exportVentasCSV()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span class="ventas-csv-full">Exportar CSV</span><span class="ventas-csv-short" style="display:none">CSV</span></button>
+      <button class="btn btn-secondary ventas-csv-btn" onclick="exportVentasCSV()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg><span class="ventas-csv-full">Exportar CSV</span><span class="ventas-csv-short" style="display:none">CSV</span></button>
       <button class="btn btn-primary ventas-reg-btn" onclick="openSoldModal(null)">${IC.plus} Registrar venta</button>
     </div>
   </div>
@@ -3347,7 +3359,7 @@ function renderVentas() {
   <div class="ventas-kpi-grid" style="margin-bottom:24px">
     ${kpiCard('Vehículos vendidos', count, periodLabel, 'var(--text)', IC_TRUCK)}
     ${kpiCard('Importe vendido', eur(importe), 'Precio de venta acumulado', 'var(--text)', IC_COIN)}
-    ${kpiCard('Margen bruto real', eur(margen), 'Beneficio bruto acumulado', margen>=0?'#15803D':'#DC2626', IC_TREND)}
+    ${kpiCard('Margen bruto real', eur(margen), 'Beneficio bruto acumulado', margen>=0?'#15803D':'#DC2626', margen>=0?IC_TREND_UP:IC_TREND_DOWN)}
     ${kpiCard('IVA a liquidar', eur(iva), 'Estimado (REBU / IVA 21%)', 'var(--text)', IC_FILE2)}
   </div>
   ${ventasCache.length > 0 ? `
@@ -3439,7 +3451,7 @@ function mkVentaRow(s) {
   <td class="td-c">${tipoPill}</td>
   <td class="td-c">
     ${s.numero_contrato
-      ? `<button class="btn btn-secondary btn-sm" onclick="event.stopPropagation();redownloadContrato('${s.id}')" title="Descargar contrato PDF" style="padding:5px 7px;color:#16255C"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>`
+      ? `<button class="btn btn-secondary btn-sm" onclick="event.stopPropagation();redownloadContrato('${s.id}')" title="Descargar contrato PDF" style="padding:5px 7px;color:#16255C"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg></button>`
       : `<span style="color:var(--text-2)">—</span>`}
   </td>
 </tr>`;
@@ -3459,7 +3471,7 @@ function mkVentaMobileCard(s) {
     ${thumb}
     <div style="min-width:0">
       <div style="font-size:14px;font-weight:700;color:#16255C;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${name}</div>
-      ${s.nombre_comprador?`<div style="display:flex;align-items:center;gap:4px;font-size:12px;color:#64748B;margin-top:2px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>${esc(s.nombre_comprador)}</div>`:''}
+      ${s.nombre_comprador?`<div style="display:flex;align-items:center;gap:4px;font-size:12px;color:#64748B;margin-top:2px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>${esc(s.nombre_comprador)}</div>`:''}
       <div style="font-size:12px;color:#94A3B8;margin-top:2px">${dt(s.fecha_venta)}</div>
     </div>
   </div>
@@ -3654,7 +3666,7 @@ function renderVentaDetail(saleId) {
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
             <div style="font-size:13px;font-weight:600;color:var(--text)">Archivos adjuntos</div>
             <label style="display:inline-flex;align-items:center;gap:5px;background:#EFF6FF;color:var(--primary);border:1px solid #DBEAFE;border-radius:var(--r);padding:5px 10px;font-size:12px;font-weight:500;cursor:pointer;font-family:inherit;transition:background .12s" onmouseenter="this.style.background='#DBEAFE'" onmouseleave="this.style.background='#EFF6FF'">
-              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m17 8-5-5-5 5"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/></svg>
               Adjuntar
               <input type="file" accept=".pdf,.jpg,.jpeg,.png" style="display:none" onchange="uploadVentaAdjunto('${s.id}',this)">
             </label>
@@ -3772,19 +3784,19 @@ function renderHome() {
 <div class="dtabs-wrap" style="display:none">
   <div class="dtabs">
     <button class="dtab${S.homeTab==='metricas'?' active':''}" data-tab="metricas" onclick="setHomeTab('metricas')">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
       Inicio
     </button>
     <button class="dtab${S.homeTab==='stock'?' active':''}" data-tab="stock" onclick="setHomeTab('stock')">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      ${IC.truck18}
       Vehículos
     </button>
     <button class="dtab${S.homeTab==='ventas'?' active':''}" data-tab="ventas" onclick="setHomeTab('ventas')">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
       Ventas
     </button>
     <button class="dtab${S.homeTab==='web'?' active':''}" data-tab="web" onclick="setHomeTab('web')">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      ${IC.chart18}
       Rendimiento web
     </button>
   </div>
@@ -3895,7 +3907,7 @@ function applyWebPeriod(p) {
     return `<span style="white-space:nowrap;font-size:0.75rem"><span style="font-weight:600;color:${d>0?'#15803D':'#DC2626'}">${d>0?'↑':'↓'} ${Math.abs(d).toFixed(1).replace('.',',')}%</span><span class="web-kpi-delta-vs" style="color:var(--text-2)"> vs. período anterior</span></span>`;
   };
 
-  const ICcar = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1l2-4h10l2 4h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="17.5" r="2.5"/></svg>`;
+  const ICcar = `${IC.car16}`;
 
   // Tabla de vehículos (período actual)
   const vstats = {};
@@ -4040,9 +4052,9 @@ function applyWebPeriod(p) {
     <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:6px">
       <div style="display:flex;align-items:center;gap:5px;flex:1;min-width:0">
         <div class="web-kpi-label" style="font-size:0.68rem;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.05em;line-height:1.3">Visitas al catálogo</div>
-        <span class="web-kpi-tip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-2);flex-shrink:0;opacity:.6"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="7.5" r="1" fill="currentColor" stroke="none"/><line x1="12" y1="11" x2="12" y2="17"/></svg><span class="web-kpi-tip-box">Número de veces que se ha cargado tu catálogo online en el período seleccionado.</span></span>
+        <span class="web-kpi-tip">${IC.infoTip}<span class="web-kpi-tip-box">Número de veces que se ha cargado tu catálogo online en el período seleccionado.</span></span>
       </div>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
     </div>
     <div class="db-kpi-val" style="font-size:2.1rem;font-weight:700;line-height:1.1;margin-top:10px">${visitas}</div>
     <div class="web-kpi-delta" style="margin-top:6px">${dlt(visitas,pvVisitas)}</div>
@@ -4055,9 +4067,9 @@ function applyWebPeriod(p) {
     <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:6px">
       <div style="display:flex;align-items:center;gap:5px;flex:1;min-width:0">
         <div class="web-kpi-label" style="font-size:0.68rem;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.05em;line-height:1.3">Fichas vistas</div>
-        <span class="web-kpi-tip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-2);flex-shrink:0;opacity:.6"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="7.5" r="1" fill="currentColor" stroke="none"/><line x1="12" y1="11" x2="12" y2="17"/></svg><span class="web-kpi-tip-box">Fichas de vehículos individuales visitadas. Un mismo visitante puede ver varias fichas.</span></span>
+        <span class="web-kpi-tip">${IC.infoTip}<span class="web-kpi-tip-box">Fichas de vehículos individuales visitadas. Un mismo visitante puede ver varias fichas.</span></span>
       </div>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M5 17H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1l2-4h10l2 4h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="17.5" r="2.5"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
     </div>
     <div class="db-kpi-val" style="font-size:2.1rem;font-weight:700;line-height:1.1;margin-top:10px">${fichas}</div>
     <div class="web-kpi-delta" style="margin-top:6px">${dlt(fichas,pvFichas)}</div>
@@ -4070,9 +4082,9 @@ function applyWebPeriod(p) {
     <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:6px">
       <div style="display:flex;align-items:center;gap:5px;flex:1;min-width:0">
         <div class="web-kpi-label" style="font-size:0.68rem;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.05em;line-height:1.3">Contactos generados</div>
-        <span class="web-kpi-tip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-2);flex-shrink:0;opacity:.6"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="7.5" r="1" fill="currentColor" stroke="none"/><line x1="12" y1="11" x2="12" y2="17"/></svg><span class="web-kpi-tip-box">Sesiones únicas en las que el visitante ha pulsado llamar o WhatsApp. Una acción de contacto no garantiza que la conversación se haya completado.</span></span>
+        <span class="web-kpi-tip">${IC.infoTip}<span class="web-kpi-tip-box">Sesiones únicas en las que el visitante ha pulsado llamar o WhatsApp. Una acción de contacto no garantiza que la conversación se haya completado.</span></span>
       </div>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.43 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.65a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>
     </div>
     <div class="db-kpi-val" style="font-size:2.1rem;font-weight:700;line-height:1.1;margin-top:10px">${contactos}</div>
     <div class="web-kpi-delta" style="margin-top:6px">${dlt(contactos,pvContactos)}</div>
@@ -4085,9 +4097,9 @@ function applyWebPeriod(p) {
     <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:6px">
       <div style="display:flex;align-items:center;gap:5px;flex:1;min-width:0">
         <div class="web-kpi-label" style="font-size:0.68rem;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.05em;line-height:1.3">Tasa de conversión</div>
-        <span class="web-kpi-tip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-2);flex-shrink:0;opacity:.6"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="7.5" r="1" fill="currentColor" stroke="none"/><line x1="12" y1="11" x2="12" y2="17"/></svg><span class="web-kpi-tip-box">Porcentaje de visitas al catálogo que generaron al menos un contacto.</span></span>
+        <span class="web-kpi-tip">${IC.infoTip}<span class="web-kpi-tip-box">Porcentaje de visitas al catálogo que generaron al menos un contacto.</span></span>
       </div>
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16255C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg>
     </div>
     <div class="db-kpi-val" style="font-size:2.1rem;font-weight:700;line-height:1.1;margin-top:10px">${conv}%</div>
     <div class="web-kpi-delta" style="margin-top:6px">${dlt(parseFloat(conv),pvConv)}</div>
@@ -4097,7 +4109,7 @@ function applyWebPeriod(p) {
     </div>
   </div>
 </div>
-${pEv.length === 0 ? `<div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:60px 20px;text-align:center;margin-bottom:20px"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-2);opacity:.4;display:block;margin:0 auto 16px"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg><div style="font-size:1rem;font-weight:600;color:var(--text);margin-bottom:8px">Sin datos para este período</div><div style="font-size:0.82rem;color:var(--text-2);max-width:360px;margin:0 auto;line-height:1.5">Cuando los visitantes interactúen con tu catálogo, aparecerán aquí los resultados.</div></div>` : `<div class="web-chart-grid">
+${pEv.length === 0 ? `<div style="background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:60px 20px;text-align:center;margin-bottom:20px"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--text-2);opacity:.4;display:block;margin:0 auto 16px"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg><div style="font-size:1rem;font-weight:600;color:var(--text);margin-bottom:8px">Sin datos para este período</div><div style="font-size:0.82rem;color:var(--text-2);max-width:360px;margin:0 auto;line-height:1.5">Cuando los visitantes interactúen con tu catálogo, aparecerán aquí los resultados.</div></div>` : `<div class="web-chart-grid">
   <div class="db-kpi" style="min-width:0;padding:16px 20px">
     <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px">
       <div><div style="font-size:0.95rem;font-weight:600;color:var(--text)">Evolución del rendimiento</div><div style="font-size:0.78rem;color:var(--text-2);margin-top:2px">Visitas y contactos generados durante el período</div></div>
@@ -4142,7 +4154,7 @@ ${pEv.length === 0 ? `<div style="background:var(--white);border:1px solid var(-
         <option value="dias">Más días en stock</option>
       </select>
       <div style="position:relative">
-        <svg style="position:absolute;left:10px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--text-2)" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <svg style="position:absolute;left:10px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--text-2)" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
         <input id="webVehicleSearch" type="text" placeholder="Buscar vehículo..." oninput="filterWebVehicleTable(this.value)" style="padding:0 10px 0 32px;font-size:12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);outline:none;width:200px;height:38px;font-family:inherit;box-sizing:border-box">
       </div>
     </div>
@@ -4276,7 +4288,7 @@ function filterWebVehicleTable(q) {
   if (!_webRankedCache) return;
   const tbody = document.getElementById('webVehicleTbody');
   if (!tbody) return;
-  const IC = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1l2-4h10l2 4h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="17.5" r="2.5"/></svg>`;
+  const IC = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>`;
   const qL = q.trim().toLowerCase();
   const rows = qL ? _webRankedCache.filter(r => r.name.toLowerCase().includes(qL)) : _webRankedCache.slice(0,5);
   if (rows.length === 0) {
@@ -4315,7 +4327,7 @@ function expandWebVehicleTable() {
   const tbody = document.getElementById('webVehicleTbody');
   const btnWrap = document.getElementById('webVerTodosBtn')?.closest('div');
   if (!tbody) return;
-  const IC = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1l2-4h10l2 4h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="17.5" r="2.5"/></svg>`;
+  const IC = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>`;
   const mxV=_webRankedCache.length>0?Math.max(..._webRankedCache.map(r=>r.vistas),1):1;
   tbody.innerHTML = _webRankedCache.map(r => {
     const thumb = r.photo ? `<img src="${r.photo}" class="web-veh-thumb" style="width:40px;height:40px;border-radius:8px;object-fit:cover;flex-shrink:0">` : `<div class="web-veh-thumb" style="width:40px;height:40px;border-radius:8px;background:var(--border-light);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#94A3B8">${IC}</div>`;
@@ -4350,7 +4362,7 @@ function sortWebVehicleTable(col) {
   else _webRankedCache.sort((a,b) => b.vistas - a.vistas);
   const tbody = document.getElementById('webVehicleTbody');
   if (!tbody) return;
-  const IC = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1l2-4h10l2 4h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="17.5" r="2.5"/></svg>`;
+  const IC = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>`;
   const q = (document.getElementById('webVehicleSearch')?.value || '').trim().toLowerCase();
   const rows = q ? _webRankedCache.filter(r => r.name.toLowerCase().includes(q)) : _webRankedCache.slice(0,5);
   if (rows.length === 0) {
@@ -4394,7 +4406,7 @@ function openWebVehMenu(e, id) {
   const menu = document.createElement('div');
   menu.className = 'web-veh-menu';
   menu.style.cssText = 'position:fixed;top:' + (rect.bottom + 4) + 'px;right:' + (window.innerWidth - rect.right) + 'px;background:var(--white);border:1px solid var(--border);border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.12);z-index:9999;min-width:180px;overflow:hidden';
-  menu.innerHTML = `<a href="${catUrl}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;padding:10px 14px;font-size:0.85rem;color:var(--text);text-decoration:none" onclick="this.closest('.web-veh-menu').remove()" onmouseenter="this.style.background='var(--bg)'" onmouseleave="this.style.background=''"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Ver ficha pública</a><div style="display:flex;align-items:center;gap:8px;padding:10px 14px;font-size:0.85rem;color:var(--text);cursor:pointer;border-top:1px solid var(--border-light)" onclick="document.querySelectorAll('.web-veh-menu').forEach(m=>m.remove());showEdit('${id}')" onmouseenter="this.style.background='var(--bg)'" onmouseleave="this.style.background=''"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Editar vehículo</div>`;
+  menu.innerHTML = `<a href="${catUrl}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;padding:10px 14px;font-size:0.85rem;color:var(--text);text-decoration:none" onclick="this.closest('.web-veh-menu').remove()" onmouseenter="this.style.background='var(--bg)'" onmouseleave="this.style.background=''"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg> Ver ficha pública</a><div style="display:flex;align-items:center;gap:8px;padding:10px 14px;font-size:0.85rem;color:var(--text);cursor:pointer;border-top:1px solid var(--border-light)" onclick="document.querySelectorAll('.web-veh-menu').forEach(m=>m.remove());showEdit('${id}')" onmouseenter="this.style.background='var(--bg)'" onmouseleave="this.style.background=''"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/></svg> Editar vehículo</div>`;
   document.body.appendChild(menu);
   setTimeout(() => document.addEventListener('click', _closeWebVehMenu), 0);
 }
@@ -4441,7 +4453,7 @@ function _closeVehCardMenu() {
   document.removeEventListener('click', _closeVehCardMenu);
 }
 function mkMobileItem(r) {
-  const ICcar = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M5 17H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1l2-4h10l2 4h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="17.5" r="2.5"/></svg>`;
+  const ICcar = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:block"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>`;
   const thumb = r.photo
     ? `<img src="${r.photo}" style="width:48px;height:48px;border-radius:8px;object-fit:cover;flex-shrink:0">`
     : `<div style="width:48px;height:48px;border-radius:8px;background:var(--border-light);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#94A3B8">${ICcar}</div>`;
@@ -4950,7 +4962,7 @@ function _renderSaleModal() {
     const avail = vehiclesCache.filter(x => !x.archivado && x.status !== 'vendido');
     const q = _saleData._q || '';
     const fil = q ? avail.filter(x=>`${x.brand} ${x.model} ${x.matricula||''}`.toLowerCase().includes(q.toLowerCase())) : avail;
-    const ICc = `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#CBD5E1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3v-5l2.5-5h13L21 12v5h-2"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/><line x1="3" y1="12" x2="21" y2="12"/></svg>`;
+    const ICc = `${IC.carGray}`;
     body.innerHTML = prog + `
 <div class="fg" style="margin-bottom:10px">
   <label>Buscar vehículo</label>
