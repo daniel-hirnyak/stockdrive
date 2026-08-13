@@ -4590,7 +4590,7 @@ function initDashCharts() {
     new Chart(dc,{
       type:'doughnut',
       data:{labels:['< 45 días','45-90 días','> 90 días'],datasets:[{data:[age1,age2,age3],backgroundColor:['#15803D','#1B2B4B','#F97316'],borderWidth:0}]},
-      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},cutout:'70%'}
+      options:{responsive:true,maintainAspectRatio:false,animation:{duration:500},plugins:{legend:{display:false}},cutout:'70%'}
     });
   }
 }
