@@ -1065,9 +1065,9 @@ textarea{resize:vertical;min-height:76px;line-height:1.5}
   #appBody, .main { overflow-x: hidden; max-width: 100vw; box-sizing: border-box; }
 }
 /* ── TAB FADE ANIMATION ──────────────────────────────────────── */
-#homeContent{transition:opacity .18s ease,transform .18s ease}
-#homeContent.tab-leaving{opacity:0;transform:translateX(-12px)}
-#homeContent.tab-entering{opacity:0;transform:translateX(12px)}
+#homeContent{transition:opacity .08s ease}
+.tab-leaving{opacity:0}
+.tab-entering{opacity:0}
 /* ── VIEW FADE ANIMATION (detail/form, contenedor #app) ──────── */
 #app{transition:opacity .18s ease,transform .18s ease}
 #app.view-leaving{opacity:0;transform:translateY(-8px)}
@@ -2938,14 +2938,15 @@ function showDash()  {
   if (cameFromDetailOrForm) { navigateWithTransition(render); } else { render(); }
   syncSidebarActive('stock'); scrollTo(0,0);
 }
-// Transición fade+slide genérica al reemplazar el contenido de un
-// contenedor. Reutiliza las clases .tab-leaving/.tab-entering ya
-// definidas en CSS (antes solo se aplicaban en el swipe táctil móvil).
+// Transición fade genérica (sin desplazamiento) al reemplazar el
+// contenido de un contenedor. Reutiliza las clases .tab-leaving/
+// .tab-entering ya definidas en CSS (antes solo se aplicaban en el
+// swipe táctil móvil).
 // afterRender (opcional) corre DESPUÉS de asignar el innerHTML, para
 // código que depende de que el nuevo DOM ya exista (p.ej. initDashCharts
 // buscando el <canvas> recién insertado) — si se ejecutara dentro de
 // newHtmlFn, correría antes de que el HTML devuelto se haya insertado.
-// 90ms = mitad de la duración de salida definida en CSS (.18s = 180ms).
+// 40ms = mitad de la duración definida en CSS (.08s = 80ms).
 function renderWithTransition(container, newHtmlFn, afterRender) {
   if (!container) { newHtmlFn(); if (afterRender) afterRender(); return; }
   container.classList.add('tab-leaving');
@@ -2957,7 +2958,7 @@ function renderWithTransition(container, newHtmlFn, afterRender) {
     requestAnimationFrame(() => {
       container.classList.remove('tab-entering');
     });
-  }, 90);
+  }, 40);
 }
 function setHomeTab(tab) {
   S.homeTab=tab; S.view='home';
@@ -5488,7 +5489,7 @@ if ('serviceWorker' in navigator) {
     // para no procesar swipes solapados mientras dura la transición.
     _animating = true;
     setHomeTab(TABS[nextIdx]);
-    setTimeout(() => { _animating = false; }, 200);
+    setTimeout(() => { _animating = false; }, 120);
   }, { passive: true });
 })();
 </script>
