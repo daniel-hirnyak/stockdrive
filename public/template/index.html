@@ -2938,6 +2938,7 @@ function navigateWithTransition(renderFn) {
   }, 90);
 }
 function showDash()  {
+  document.querySelectorAll('.veh-card-menu').forEach(m => m.remove());
   // Solo animamos si venimos de detail/form (donde render() SÍ reemplaza
   // #app entero). Si ya estábamos en home, render() solo actualiza
   // #homeContent por dentro — aplicar la transición a #app ahí causaría
@@ -2989,7 +2990,7 @@ function setHomeTab(tab) {
   syncSidebarActive(tab);
   scrollTo(0,0);
 }
-function showAddForm() { S.view='form';S.editId=null;initForm(null);navigateWithTransition(render);scrollTo(0,0); }
+function showAddForm() { document.querySelectorAll('.veh-card-menu').forEach(m => m.remove()); S.view='form';S.editId=null;initForm(null);navigateWithTransition(render);scrollTo(0,0); }
 
 // ─── HOME DASHBOARD ──────────────────────────────────────────
 function renderHomeContent() {
@@ -4618,10 +4619,11 @@ function goAlertGroup(key) {
 }
 
 function showEdit(id)  {
+  document.querySelectorAll('.veh-card-menu').forEach(m => m.remove());
   const v=vehiclesCache.find(x=>x.id===id); if(!v) return;
   S.view='form';S.editId=id;initForm(v);navigateWithTransition(render);scrollTo(0,0);
 }
-function showDetail(id) { S.view='detail';S.detailId=id;navigateWithTransition(render);scrollTo(0,0); }
+function showDetail(id) { document.querySelectorAll('.veh-card-menu').forEach(m => m.remove()); S.view='detail';S.detailId=id;navigateWithTransition(render);scrollTo(0,0); }
 function setFilter(f)   { S.alertVehicleIds=null; S.filter=f;render(); }
 function setVehicleView(v) { localStorage.setItem('stockdrive_vehicle_view', v); render(); }
 function setQ(q) {
@@ -4919,6 +4921,7 @@ async function doChangeStatus(id, oldSt, newSt, salePrice, saleDate, buyerData=n
 
 // ─── SOLD MODAL (3 pasos) ─────────────────────────────────────
 function openSoldModal(id) {
+  document.querySelectorAll('.veh-card-menu').forEach(m => m.remove());
   _saleStep = id ? 2 : 1;
   _saleVehicleId = id || null;
   S.soldTargetId = id || null;
