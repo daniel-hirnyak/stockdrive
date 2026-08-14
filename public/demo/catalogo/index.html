@@ -857,6 +857,7 @@ img { display: block; max-width: 100%; }
 .sl-card-name{font-size:19px;font-weight:800;color:var(--text);margin-bottom:10px;letter-spacing:-.2px;line-height:1.2}
 .sl-card-specs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
 .sl-spec{display:flex;align-items:center;gap:5px;font-size:13px;color:var(--text-2);background:var(--gray);border-radius:6px;padding:4px 10px;white-space:nowrap}
+.sl-card-desc{font-size:12.5px;color:var(--text-2);line-height:1.5;margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis}
 .sl-badge-dest{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:var(--red);background:rgba(22,37,92,.08);border:1px solid rgba(22,37,92,.2);border-radius:6px;padding:3px 8px;width:fit-content}
 .sl-card-price-col{padding:18px 20px;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:10px;flex-shrink:0;border-left:1px solid var(--gray-2)}
 .sl-price-label{font-size:11px;font-weight:600;color:var(--text-2);text-transform:uppercase;letter-spacing:.06em}
@@ -2321,12 +2322,14 @@ function renderStockList() {
     if (v.km)    specs += '<span class="sl-spec">' + svgKm  + num(v.km) + ' km</span>';
     if (v.color) specs += '<span class="sl-spec">' + esc(v.color) + '</span>';
     var destBadge = v.destacado ? '<div class="sl-badge-dest">' + svgStar + ' Destacado</div>' : '';
+    var desc = v.descripcion ? '<div class="sl-card-desc">' + esc(v.descripcion) + '</div>' : '';
     var vid = esc(v.id);
     return '<div class="sl-card" onclick="openFicha(\'' + vid + '\')">' +
       '<div class="sl-card-img">' + photo + yearBadge + photoCount + '</div>' +
       '<div class="sl-card-body">' +
         '<div class="sl-card-name">' + esc(v.brand) + ' ' + esc(v.model) + '</div>' +
         '<div class="sl-card-specs">' + specs + '</div>' +
+        desc +
         destBadge +
       '</div>' +
       '<div class="sl-card-price-col">' +
