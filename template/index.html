@@ -746,8 +746,8 @@ textarea{resize:vertical;min-height:76px;line-height:1.5}
 .ventas-detail-outer{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .ventas-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
 .ventas-doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.ventas-table-wrap{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow);overflow-x:auto;overflow-y:visible}
-.ventas-table{width:100%;border-collapse:collapse;font-size:13px;min-width:700px}
+.ventas-table-wrap{width:100%;background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow);overflow-x:auto;overflow-y:visible}
+.ventas-table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:13px;min-width:700px}
 .ventas-table thead th{padding:10px 14px;text-align:left;font-size:11px;font-weight:700;color:var(--text-2);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;background:#F9FAFB;border-bottom:1px solid var(--border)}
 .ventas-table thead th.th-r{text-align:right}
 .ventas-table thead th.th-c{text-align:center}
@@ -1491,6 +1491,25 @@ function setLoading(on, text) {
 }
 
 // ─── AUTH ─────────────────────────────────────────────────────
+// Detecta errores de JWT por desfase de reloj (ej. "JWT issued at future")
+// u otros tokens inválidos/caducados que Supabase pueda devolver en
+// cualquier llamada. En vez de dejar al usuario atascado con un error
+// visible, cierra sesión y muestra la pantalla de login limpia.
+function isJwtClockError(err) {
+  const msg = String((err && (err.message || err.error_description)) || err || '');
+  return /jwt/i.test(msg) && /(future|issued|expired|invalid)/i.test(msg);
+}
+async function handleAuthError(err) {
+  if (!isJwtClockError(err)) return false;
+  console.error('[Auth] Token inválido, cerrando sesión automáticamente:', err.message||err);
+  try { await sb.auth.signOut(); } catch(e) {}
+  vehiclesCache = [];
+  document.getElementById('appContainer')?.classList.add('hidden');
+  document.getElementById('loginScreen')?.classList.remove('hidden');
+  const errEl = document.getElementById('loginError');
+  if (errEl) { errEl.textContent = 'Tu sesión ha caducado. Por favor, inicia sesión de nuevo.'; errEl.classList.remove('hidden'); }
+  return true;
+}
 async function initApp() {
   const el = document.getElementById('navBusinessName');
   if (el) el.textContent = CLIENT_CONFIG.businessName;
@@ -1513,7 +1532,8 @@ async function initApp() {
   });
 
   // 1. Sesión activa existente
-  const { data: { session } } = await sb.auth.getSession();
+  const { data: { session }, error: _se } = await sb.auth.getSession();
+  if (_se && await handleAuthError(_se)) return;
   if (session) { showApp(); syncSidebarActive(S.homeTab); await loadData(); return; }
 
   // 2. Auto-login si el usuario marcó "Recordar sesión" en el último login
@@ -1521,6 +1541,7 @@ async function initApp() {
   if (localStorage.getItem('sd_remember') === 'true' && _savedEmail && _savedPw) {
     const { error: _ae } = await sb.auth.signInWithPassword({ email: _savedEmail, password: atob(_savedPw) });
     if (_ae) {
+      if (await handleAuthError(_ae)) return;
       // Credenciales inválidas (contraseña cambiada, etc.) — limpia y muestra login
       // El formulario ya tiene el email pre-rellenado desde arriba
       localStorage.removeItem('sd_remember');
@@ -1746,6 +1767,7 @@ async function loadData() {
     ventasCache   = sae ? [] : (ventas||[]); // non-fatal: tabla puede no existir aún
     render();
   } catch (err) {
+    if (await handleAuthError(err)) return;
     toast('Error al cargar datos: '+(err.message||err), 4000, 'error');
     render();
   } finally { setLoading(false); }
@@ -3370,7 +3392,7 @@ function renderVentas() {
       <div style="font-size:15px;font-weight:600;color:var(--text)">Evolución de las ventas</div>
       <div style="font-size:12px;color:var(--text-2);margin-top:3px">Importe vendido y margen bruto durante los últimos 6 meses</div>
     </div>
-    <div style="height:220px;position:relative"><canvas id="ventasEvolucionChart"></canvas></div>
+    <div style="width:100%;height:220px;position:relative"><canvas id="ventasEvolucionChart"></canvas></div>
   </div>
   <div class="ventas-resumen-card" style="background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:20px;display:flex;flex-direction:column">
     <div class="ventas-resumen-title" style="font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text-2);margin-bottom:16px">Resumen del período</div>
@@ -3395,8 +3417,12 @@ function renderVentas() {
 </div>
 <div class="ventas-mobile-cards">${mobileCards}</div>
 <div class="ventas-table-wrap">
-  <div style="overflow-x:auto">
     <table class="ventas-table">
+      <colgroup>
+        <col style="width:24%"><col style="width:10%"><col style="width:14%">
+        <col style="width:10%"><col style="width:10%"><col style="width:10%">
+        <col style="width:7%"><col style="width:8%"><col style="width:7%">
+      </colgroup>
       <thead><tr>
         <th>Vehículo</th>
         <th>Fecha venta</th>
@@ -3410,7 +3436,6 @@ function renderVentas() {
       </tr></thead>
       <tbody>${tableRows}</tbody>
     </table>
-  </div>
 </div>`}
 </div>`;
 }
@@ -5396,8 +5421,9 @@ initApp();
 
 document.addEventListener('visibilitychange', async () => {
   if (document.visibilityState === 'visible') {
-    const session = await sb.auth.getSession();
-    if (session?.data?.session) { loadData(); }
+    const { data, error } = await sb.auth.getSession();
+    if (error && await handleAuthError(error)) return;
+    if (data?.session) { loadData(); }
   }
 });
 
