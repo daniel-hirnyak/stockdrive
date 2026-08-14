@@ -15,5 +15,5 @@ const CLIENT_CONFIG = {
   catalogTitle: 'Vehículos de ocasión seleccionados',
   catalogHero: 'Furgonetas y vehículos de ocasión, listos para ti',
   catalogColor: '#16255C',
-  catalogMapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11972!2d2.1734!3d41.3851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1'
+  catalogMapUrl: 'https://www.google.com/maps?q=41.3851,2.1734&z=13&output=embed'
 };

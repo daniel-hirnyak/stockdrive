@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "sync:panels": "cp -r demo/. public/demo/ && cp -r template/. public/template/ && rm -f public/template/schema.sql public/template/rls.sql",
+    "sync:panels": "cp -r demo/. public/demo/ && cp -r template/. public/template/ && rm -f public/template/schema.sql public/template/rls.sql && (cp -rn assets/. public/assets/ || true)",
     "prebuild": "npm run sync:panels",
     "build": "vite build",
     "lint": "oxlint",
