@@ -25,6 +25,24 @@ jobs:
             -H "Authorization: Bearer $SUPABASE_ANON_KEY"
           echo "Ping completado"
 
+      - name: Ping Supabase Demo (INSERT)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
+            -X POST "$SUPABASE_URL/rest/v1/eventos_catalogo" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
+            -H "Content-Type: application/json" \
+            -H "Prefer: return=minimal" \
+            -d '{"tipo": "visita_catalogo"}')
+          echo "INSERT eventos_catalogo -> HTTP $HTTP_CODE"
+          if [ "$HTTP_CODE" != "201" ]; then
+            echo "::error::INSERT en eventos_catalogo devolvió $HTTP_CODE (se esperaba 201)"
+            exit 1
+          fi
+
       - name: Update last-ping timestamp
         run: |
           mkdir -p .github
